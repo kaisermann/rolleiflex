@@ -1,0 +1,228 @@
+@import "src/wrapper.styl"
+
+rolleiflex.useRem = false
+rolleiflex.autoBorderBox = false
+
+_colors = {
+	"pink": #FF007A,
+	"purple": #93648D,
+	"green": #7BC8A4,
+	"blue": #4CC3D9,
+	"yellow": #FFC65D,
+	"red": #F16745,
+	"black": #404040,
+	"white": whitesmoke,
+	"brown": #7F5F38,
+	"gray": #353B42
+}
+
+makeGrid()
+
+responsiveBold(scaleName)
+	.bold-{scaleName}
+		font-weight bold
+		
+responsiveColor(scaleName)
+	.color-{scaleName}
+		color: _colors.yellow
+		text-decoration underline
+
+responsiveBold("ty")
+@media (min-width: gUnit(rolleiflex.breakpoints.xs.breakpoint))
+	responsiveBold("xs")
+	
+@media (min-width: gUnit(rolleiflex.breakpoints.sm.breakpoint))
+	responsiveBold("sm")
+	
+@media (min-width: gUnit(rolleiflex.breakpoints.md.breakpoint))
+	responsiveBold("md")
+	
+@media (min-width: gUnit(rolleiflex.breakpoints.lg.breakpoint))
+	responsiveBold("lg")
+	
+responsiveColor("ty")
+@media (min-width: gUnit(rolleiflex.breakpoints.xs.breakpoint)) and (max-width: gUnit(rolleiflex.breakpoints.sm.breakpoint))
+	responsiveColor("xs")
+	
+@media (min-width: gUnit(rolleiflex.breakpoints.sm.breakpoint)) and (max-width: gUnit(rolleiflex.breakpoints.md.breakpoint))
+	responsiveColor("sm")
+	
+@media (min-width: gUnit(rolleiflex.breakpoints.md.breakpoint)) and (max-width: gUnit(rolleiflex.breakpoints.lg.breakpoint))
+	responsiveColor("md")
+	
+@media (min-width: gUnit(rolleiflex.breakpoints.lg.breakpoint))
+	responsiveColor("lg")
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+	
+* 
+	box-sizing border-box
+	
+body
+	font-family Monospace, sans-serif
+	
+h1
+	font-size 48px
+	margin-bottom 10px
+	
+h2
+	font-size 32px
+	margin-bottom 10px
+	
+h3
+	margin-top 30px
+	font-size 22px
+	margin-bottom 10px
+	
+strong
+	font-weight bold
+	
+section
+	padding 30px 15px
+	
+	&.download
+	&.title
+		padding 80px 15px
+		
+	
+.section__header
+	margin-bottom 40px
+	line-height 1.4
+	
+	&--no-mg
+		margin-bottom 0
+	
+for color, hex in _colors
+	.color--{color}
+		color hex
+		
+	.bg--{color}
+		background-color hex
+	
+.col-content
+	width 100%
+	min-height 60px
+	margin-bottom: gUnit(rolleiflex.spaces.gutter*2)
+	padding 5px
+	align-items center
+	justify-content center
+	font-size 14px
+	display flex
+	flex-wrap wrap
+	
+	span
+		display block
+		width 100%
+		word-break break-all
+		
+	&--noalign
+		text-align inherit
+		
+	&--small
+		min-height 20px
+		
+	&--big
+		min-height 120px
+		
+	&--center
+		text-align center
+		
+.row-wrapper
+	padding 15px
+	margin-bottom: gUnit(rolleiflex.spaces.gutter*2)
+	.col-content
+		margin-bottom 0 
+		
+	&__title
+		display block
+		margin-bottom 10px
+		
+.row--vertical
+	[class^=col--] + [class^=col--] 
+		margin-top 16px
+		
+	&.row--dir-reverse-col
+		[class^=col--]
+			margin-top 16px
+			
+			&:last-child
+				margin-top 0
+		
+		
+pre
+	color: _colors.black
+	background-color: _colors.white
+	border-left: 10px solid _colors.gray
+	padding 15px 10px
+	margin-bottom 15px
+	
+.config__attr
+	background-color: _colors.white
+	padding 15px
+	
+	+ .config__attr
+		margin-top 15px
+		
+.config__attr-name
+	display inline-block
+	background-color: _colors.black
+	color: _colors.white
+	padding 5px 10px
+	
+section.download
+	padding 80px 15px
+	
+.download-links
+	a
+		display inline-block
+		padding 8px 16px
+		background-color: _colors.red
+		color: _colors.white
+		text-decoration none
+		font-size 18px
+		
+		&:hover
+			background-color: _colors.purple
+	

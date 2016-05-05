@@ -1,14 +1,11 @@
 {
-  "name": "drig",
+  "name": "rolleiflex",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "src/wrapper.styl",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kaisermann/drig.git"
+    "url": "git+https://github.com/kaisermann/rolleiflex.git"
   },
   "keywords": [
     "grid",
@@ -18,9 +15,9 @@
   "author": "Christian Kaisermann",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kaisermann/drig/issues"
+    "url": "https://github.com/kaisermann/rolleiflex/issues"
   },
-  "homepage": "https://github.com/kaisermann/drig#readme",
+  "homepage": "http://kaisermann.github.io/rolleiflex/",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
