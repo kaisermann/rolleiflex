@@ -829,13 +829,8 @@
             align-self: flex-end;
   }
 }
-.bold-ty {
+.bold-xs {
   font-weight: bold;
-}
-@media (min-width: 0px) {
-  .bold-xs {
-    font-weight: bold;
-  }
 }
 @media (min-width: 768px) {
   .bold-sm {
@@ -851,10 +846,6 @@
   .bold-lg {
     font-weight: bold;
   }
-}
-.color-ty {
-  color: #ffc65d;
-  text-decoration: underline;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .color-xs {
