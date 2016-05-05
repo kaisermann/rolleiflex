@@ -1,0 +1,34 @@
+{
+  "name": "drig",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaisermann/drig.git"
+  },
+  "keywords": [
+    "grid",
+    "css",
+    "flexbox"
+  ],
+  "author": "Christian Kaisermann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaisermann/drig/issues"
+  },
+  "homepage": "https://github.com/kaisermann/drig#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-load-plugins": "^1.2.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-stylus": "^2.3.1",
+    "merge-stream": "^1.0.0"
+  }
+}

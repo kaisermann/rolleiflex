@@ -1,0 +1,40 @@
+rolleiflex = {
+	// Configurations
+	"baseFontSize": 	16px,		// HTML font size, for the useRem option
+	"useRem": 			true,		// Use the rem unit instead of px
+	"autoBorderBox":	true,		// Set to false if your CSS already has something like * {box-sizing:border-box}
+
+	// Builds
+	"build": {
+		"container": true,			// Should build the .container CSS?
+		"responsiveText": true 		// Should build the .txt-breakpoint-position CSS? 
+	},
+	// Columns
+	"columns": 			12,			// Number of columns in the grid
+
+	// Spacing
+	"spaces":
+	{
+		"gutter": 			8px,	// Gutter size
+		"padding": 			32px	// .container--padded padding size
+	},
+	// Breakpoint Stuff
+	"breakpoints": {
+		"xs": {
+			"breakpoint": 0,	// Breakpoint min size = @media(min-width:xxx)
+		},
+		"sm": {
+			"breakpoint": 768px,	// Breakpoint min size = @media(min-width:xxx)
+			"container": 740px		// Container max-width
+		},
+		"md": {
+			"breakpoint": 991px,
+			"container": 960px
+		},
+		"lg": {
+			"breakpoint": 1201px,
+			"container": 1140px
+		}
+	}
+}
+

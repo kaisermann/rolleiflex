@@ -1,0 +1,117 @@
+gUnit(p)
+	if(rolleiflex.useRem)
+		return unit(p / rolleiflex.baseFontSize, "rem")
+	return unit(p,"px")
+
+makeBreakpointGrid(scaleName)
+	.row--{scaleName}-start
+		justify-content flex-start
+		
+	.row--{scaleName}-end
+		justify-content flex-end
+		
+	.row--{scaleName}-center
+		justify-content center
+
+	.row--{scaleName}-top
+		align-items flex-start
+		
+	.row--{scaleName}-bottom
+		align-items flex-end
+		
+	.row--{scaleName}-middle
+		align-items center
+		
+	.row--{scaleName}-around
+		justify-content space-around
+		
+	.row--{scaleName}-between
+		justify-content space-between
+
+	/* Auto Columns */
+	.col--{scaleName}
+		flex-grow 1
+		flex-basis 0
+		max-width 100%
+		
+	/* Columns */
+	for col in (1..rolleiflex.columns)
+		.col--{scaleName}-{col}
+			flex-basis: round(percentage(col/rolleiflex.columns),10)
+			max-width: round(percentage(col/rolleiflex.columns),10)
+			
+	/* Columns Offset helpers */
+	for col in (1..(rolleiflex.columns - 1))
+		.col--{scaleName}-offset-{col}
+			margin-left: round(percentage(col/rolleiflex.columns),10)
+			
+	/* Text alignment helpers */
+	for alignment in (left center right)
+		.txt--{scaleName}-{alignment}
+			text-align: alignment
+		
+	.col--{scaleName}-first
+		order -1
+		
+	.col--{scaleName}-last
+		order 1
+		
+	.col--{scaleName}-top
+		align-self flex-start
+		
+	.col--{scaleName}-middle
+		align-self center
+		
+	.col--{scaleName}-bottom
+		align-self flex-end
+			
+makeGrid()
+	if(rolleiflex.build.container)
+		.container
+			width 100%
+			margin-right auto
+			margin-left auto
+
+		.container--padded
+			padding-right: gUnit(rolleiflex.spaces.padding)
+			padding-left: gUnit(rolleiflex.spaces.padding)
+
+	.row
+		if(rolleiflex.autoBorderBox)
+			box-sizing border-box
+		display flex
+		flex 0 1 auto
+		flex-direction row
+		flex-wrap wrap
+		margin-right: -(gUnit(rolleiflex.spaces.gutter))
+		margin-left: -(gUnit(rolleiflex.spaces.gutter))
+
+	.row--dir-col
+		flex-direction column
+		
+	.row--dir-reverse-row
+		flex-direction row-reverse
+		
+	.row--dir-reverse-col
+		flex-direction column-reverse
+
+	[class^=col--]
+		if(rolleiflex.autoBorderBox)
+			box-sizing border-box
+		padding-right: gUnit(rolleiflex.spaces.gutter)
+		padding-left: gUnit(rolleiflex.spaces.gutter)
+		width 100%
+		flex 0 0 auto
+
+	for scaleName, scaleOptions in rolleiflex.breakpoints
+		if(scaleOptions.breakpoint == 0)
+			makeBreakpointGrid(scaleName)
+		else
+			@media (min-width gUnit(scaleOptions.breakpoint))
+			
+				if(rolleiflex.build.container)
+					.container
+						max-width: gUnit(scaleOptions.container)
+					
+				makeBreakpointGrid(scaleName)
+				
