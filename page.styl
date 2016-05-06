@@ -138,7 +138,7 @@ for color, hex in _colors
 .col-content
 	width 100%
 	min-height 60px
-	margin-bottom: gUnit(rolleiflex.spaces.gutter*2)
+	margin-bottom: gUnit(rolleiflex.spaces.gutter)
 	padding 5px
 	align-items center
 	justify-content center
@@ -166,6 +166,7 @@ for color, hex in _colors
 .row-wrapper
 	padding 15px
 	margin-bottom: gUnit(rolleiflex.spaces.gutter*2)
+	overflow hidden
 	.col-content
 		margin-bottom 0 
 		
@@ -174,8 +175,10 @@ for color, hex in _colors
 		margin-bottom 10px
 		
 .row--vertical
-	[class^=col--] + [class^=col--] 
-		margin-top 16px
+	[class^=col--] 
+		min-height 60px
+		+ [class^=col--] 
+			margin-top 16px
 		
 	&.row--dir-reverse-col
 		[class^=col--]
@@ -195,6 +198,7 @@ pre
 .config__attr
 	background-color: _colors.white
 	padding 15px
+	line-height 1.2
 	
 	+ .config__attr
 		margin-top 15px
@@ -204,10 +208,15 @@ pre
 	background-color: _colors.black
 	color: _colors.white
 	padding 5px 10px
+	margin-bottom 4px
 	
-section.download
-	padding 80px 15px
-	
+.config__attr-default
+	display inline-block
+	background-color: _colors.purple
+	color: _colors.white
+	padding 5px 10px
+	margin-bottom 4px
+		
 .download-links
 	a
 		display inline-block

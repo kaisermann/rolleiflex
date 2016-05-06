@@ -13,7 +13,7 @@
 				<p>Just a responsive flexbox grid</p>
 			</header>
 			<div class="download-links">
-				<a href="https://github.com/kaisermann/rolleiflex/archive/v1.0.0.zip">Download</a> 
+				<a href="https://github.com/kaisermann/rolleiflex/archive/v1.0.1.zip">Download</a> 
 				<a href="https://github.com/kaisermann/rolleiflex">GitHub</a> 
 			</div>
 		</div>
@@ -395,12 +395,62 @@
 			<div class="grid color--black">
 				<div class="row-wrapper bg--yellow">
 					<span class="row-wrapper__title color--black">.txt--xx-left|center|right</span>
-					<div class="row row--xs-start">
+					<div class="row row--xs-start row--xs-center">
 						<div class="col--xs-6">
-							<div class="col-content bg--green txt--xs-center txt--md-right txt-sm-left">
+							<div class="col-content bg--green txt--xs-center txt--md-right txt--sm-left">
 								<span class="bold-xs">.txt--xs-center</span>
 								<span class="bold-sm">.txt--sm-left</span>
 								<span class="bold-md">.txt--md-right</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="text-alignment bg--yellow">
+		<div class="container">
+			<header class="section__header color--black">
+				<h2>Column spacing</h2>
+				<p>You know, when you spent hours trying to equally space everything...</p>
+			</header>
+			<div class="grid color--white">
+				<div class="row-wrapper bg--blue">
+					<span class="row-wrapper__title color--white">.row--xx-around</span>
+					<div class="row row--xs-start row--xs-around">
+						<div class="col--xs-2">
+							<div class="col-content txt--xs-center bg--brown">
+								<span class="bold-xs">.col--xs-2</span>
+							</div>
+						</div>
+						<div class="col--xs-4">
+							<div class="col-content txt--xs-center bg--brown">
+								<span class="bold-xs">.col--xs-4</span>
+							</div>
+						</div>
+						<div class="col--xs-2">
+							<div class="col-content txt--xs-center bg--brown">
+								<span class="bold-xs">.col--xs-2</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row-wrapper bg--blue">
+					<span class="row-wrapper__title color--white">.row--xx-between</span>
+					<div class="row row--xs-start row--xs-between">
+						<div class="col--xs-2">
+							<div class="col-content txt--xs-center bg--brown">
+								<span class="bold-xs">.col--xs-2</span>
+							</div>
+						</div>
+						<div class="col--xs-4">
+							<div class="col-content txt--xs-center bg--brown">
+								<span class="bold-xs">.col--xs-4</span>
+							</div>
+						</div>
+						<div class="col--xs-2">
+							<div class="col-content txt--xs-center bg--brown">
+								<span class="bold-xs">.col--xs-2</span>
 							</div>
 						</div>
 					</div>
@@ -585,57 +635,62 @@
 				</header>
 				<div class="config">
 					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.baseFontSize</span> HTML font size, for the useRem option
+						<span class="config__attr-name">rolleiflex.baseFontSize</span> <span class="config__attr-default">16px</span> HTML font size, for the useRem option
 					</div>
 
 					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.useRem</span> Use the rem unit instead of px
+						<span class="config__attr-name">rolleiflex.useRem</span> <span class="config__attr-default">false</span> Use the rem unit instead of px
 					</div>
 
 					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.autoBorderBox</span> Set to false if your CSS already has something like * {box-sizing: border-box}
+						<span class="config__attr-name">rolleiflex.autoBorderBox</span> <span class="config__attr-default">true</span> Set to false if your CSS already has something like * {box-sizing: border-box}
 					</div>
 
 
 					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.build.container</span> Should build the .container CSS?
+						<span class="config__attr-name">rolleiflex.build.container</span> <span class="config__attr-default">true</span> Should build the .container CSS? True or false.
 					</div>
 
 					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.build.responsiveText</span> Should build the .txt-breakpoint-position CSS? </div>
-
-
-						<div class="config__attr">
-							<span class="config__attr-name">rolleiflex.columns</span> Number of columns in the grid
-						</div>
-
-
-						<div class="config__attr">
-							<span class="config__attr-name">rolleiflex.spaces.gutter</span> Gutter size
-						</div>
-
-						<div class="config__attr">
-							<span class="config__attr-name">rolleiflex.spaces.padding</span> .container--padded padding size
-						</div>
-
-
-						<div class="config__attr">
-							<span class="config__attr-name">rolleiflex.breakpoints.XX.breakpoint</span> Breakpoint min size = @media(min-width:xxx)</div>
-
-							<div class="config__attr">
-								<span class="config__attr-name">rolleiflex.breakpoints.XX.container</span> Container max-width
-							</div>
-
-						</div>
+						<span class="config__attr-name">rolleiflex.build.responsiveText</span> <span class="config__attr-default">true</span> Should build the .txt-breakpoint-position CSS? True or False.
 					</div>
-				</section>
-				<section class="download bg--green">
-					<div class="container txt--xs-center">
+
+
+					<div class="config__attr">
+						<span class="config__attr-name">rolleiflex.columns</span> <span class="config__attr-default">12</span> Number of columns in the grid
+					</div>
+
+
+					<div class="config__attr">
+						<span class="config__attr-name">rolleiflex.gutterType</span> <span class="config__attr-default">margin</span> Should the space between columns be made with 'padding' (like bootstrap) or with 'margin'? If set to 'margin', it is used calc() and you'll be able to define a background-color to columns and keep the space between them without the need of another element.
+					</div>
+
+					<div class="config__attr">
+						<span class="config__attr-name">rolleiflex.spaces.gutter</span> <span class="config__attr-default">8px</span> Gutter size
+					</div>
+
+					<div class="config__attr">
+						<span class="config__attr-name">rolleiflex.spaces.padding</span> <span class="config__attr-default">32px</span> .container--padded padding size
+					</div>
+
+
+					<div class="config__attr">
+						<span class="config__attr-name">rolleiflex.breakpoints.XX.breakpoint</span> Breakpoint min size = @media(min-width:xxx)</div>
+
+						<div class="config__attr">
+							<span class="config__attr-name">rolleiflex.breakpoints.XX.container</span> Container max-width
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<section class="download bg--green">
+				<div class="container txt--xs-center">
 						<header class="section__header color--black ">
 							<h1>Download</h1>
 						</header>
 						<div class="download-links">
-							<a href="https://github.com/kaisermann/rolleiflex/archive/v1.0.0.zip">Download</a> 
+							<a href="https://github.com/kaisermann/rolleiflex/archive/v1.0.1.zip">Download</a> 
 							<a href="https://github.com/kaisermann/rolleiflex">GitHub</a> 
 						</div>
 						</section>

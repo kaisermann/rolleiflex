@@ -37,13 +37,26 @@ makeBreakpointGrid(scaleName)
 	/* Columns */
 	for col in (1..rolleiflex.columns)
 		.col--{scaleName}-{col}
-			flex-basis: round(percentage(col/rolleiflex.columns),10)
-			max-width: round(percentage(col/rolleiflex.columns),10)
+			percentageWidth = round(percentage(col/rolleiflex.columns),10)
+			finalWidth = percentageWidth
+			
+			if(rolleiflex.gutterType == "margin")
+				finalWidth = "calc(%s - %s)" % (percentageWidth (rolleiflex.spaces.gutter))
+				
+			flex-basis: finalWidth
+			max-width: finalWidth
+				
 			
 	/* Columns Offset helpers */
 	for col in (1..(rolleiflex.columns - 1))
+		percentageWidth = round(percentage(col/rolleiflex.columns),10)
+		finalWidth = percentageWidth
+		
+		if(rolleiflex.gutterType == "margin")
+			finalWidth = "calc(%s + %s)" % (percentageWidth (rolleiflex.spaces.gutter/2))
+			
 		.col--{scaleName}-offset-{col}
-			margin-left: round(percentage(col/rolleiflex.columns),10)
+			margin-left: finalWidth
 			
 	/* Text alignment helpers */
 	for alignment in (left center right)
@@ -83,8 +96,8 @@ makeGrid()
 		flex 0 1 auto
 		flex-direction row
 		flex-wrap wrap
-		margin-right: -(gUnit(rolleiflex.spaces.gutter))
-		margin-left: -(gUnit(rolleiflex.spaces.gutter))
+		margin-right: -(gUnit(rolleiflex.spaces.gutter / 2))
+		margin-left: -(gUnit(rolleiflex.spaces.gutter / 2))
 
 	.row--dir-col
 		flex-direction column
@@ -98,9 +111,18 @@ makeGrid()
 	[class^=col--]
 		if(rolleiflex.autoBorderBox)
 			box-sizing border-box
-		padding-right: gUnit(rolleiflex.spaces.gutter)
-		padding-left: gUnit(rolleiflex.spaces.gutter)
-		width 100%
+			
+		spaceType = padding
+		colWidth = 100%
+		
+		if(rolleiflex.gutterType == "margin")
+			spaceType = margin
+			colWidth = "calc(%s - %s)" % (100% rolleiflex.spaces.gutter)
+		
+		{spaceType}-right: gUnit(rolleiflex.spaces.gutter / 2)
+		{spaceType}-left: gUnit(rolleiflex.spaces.gutter / 2)
+		width colWidth
+			
 		flex 0 0 auto
 
 	for scaleName, scaleOptions in rolleiflex.breakpoints
