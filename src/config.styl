@@ -2,22 +2,23 @@ rolleiflex = {
 	// Configurations 
 	"baseFontSize": 			16px,		// HTML font size, for the use.rem option
 	"autoBorderBox":			true,		// Set to false if your CSS already has something like * {box-sizing:border-box}
-
+	
 	// Use
 	"use": {
-		"rem": 					true,		// Use the rem unit instead of px
-		"attrSelector": 		true 		// Build grid with [class^=] selector (true) or list of classes (false)? 
-	}
+		"rem": 					true,		// Use the rem unit instead of px (true or false)
+	},
 	// Builds
 	"build": {
 		"container": 			true,		// Should build the .container CSS?
-		"responsiveText": 		true 		// Should build the .txt-breakpoint-position CSS? 
+		"responsiveText": 		true, 		// Should build the .txt-breakpoint-position CSS? 
+		"declarative": 			true 		// Should build the grid with its declarative syntax?
 	},
+	"declarativePrefix": 		""		 	// Declarative syntax prefix (string), for build.declarative = true
+	
 	// Columns
 	"columns": 					12,			// Number of columns in the grid
 
 	// Spacing
-	"gutterType": 				"margin", 	// Gutter Type <margin,padding>. If 'margin', calc() is used
 	"spaces":
 	{
 		"gutter": 				16px,		// Gutter size

@@ -2,14 +2,20 @@
 
 var gulp = require('gulp');
 var merge = require('merge-stream');
+var argv = require('yargs').argv;
 var $ = require('gulp-load-plugins')();
 
 // Autoprefixer browser string
 var browserString = 'last 2 versions';
 
+var endFile = "rolleiflex";
+
+if(!!argv.endfile)
+	endFile = argv.endfile;
+
 gulp.task('build', function() 
 {
-	var files = [['./src/build.styl','./dist/', 'rolleiflex.css'], ['./page.styl','./','page.css']];
+	var files = [['./src/build.styl','./dist/', endFile+'.css'], ['./page.styl','./','page.css']];
 
 	var tasks = files.map(function(e)
 	{
@@ -26,9 +32,9 @@ gulp.task('build', function()
 
 gulp.task('minify', ['build'], function()
 {
-	return gulp.src(['./dist/rolleiflex.css'])
+	return gulp.src(['./dist/'+endFile+'.css'])
 	.pipe($.cssnano())
-	.pipe($.rename('rolleiflex.min.css'))
+	.pipe($.rename(endFile+'.min.css'))
 	.pipe(gulp.dest('./dist/'));
 });
 

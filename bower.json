@@ -1,7 +1,7 @@
 {
   "name": "rolleiflex",
   "description": "CSS Flexbox Grid",
-  "main": "dist/rolleiflex.css",
+  "main": "dist/rolleiflex.declarative.css",
   "authors": [
     "Christian Kaisermann"
   ],
