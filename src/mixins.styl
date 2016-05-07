@@ -45,7 +45,7 @@ gUnit(p)
 	.row--{scaleName}-between
 		justify-content space-between
 
-	if(!rolleiflex.use.attributeSelector)
+	if(!rolleiflex.use.attrSelector)
 		_colSelector = ".col--" + scaleName + ","
 		for i in 1..rolleiflex.columns
 			_colSelector += "," + ".col--" + scaleName + "-" + i
@@ -135,7 +135,7 @@ makeGrid()
 	
 	_colSelector = ""
 	
-	if(rolleiflex.use.attributeSelector)
+	if(rolleiflex.use.attrSelector)
 		[class^=col--]
 			--getColBase()
 
