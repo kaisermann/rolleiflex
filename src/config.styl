@@ -1,32 +1,36 @@
 rolleiflex = {
 	// Configurations 
-	"baseFontSize": 		16px,		// HTML font size, for the useRem option
-	"useRem": 				false,		// Use the rem unit instead of px
-	"autoBorderBox":		true,		// Set to false if your CSS already has something like * {box-sizing:border-box}
+	"baseFontSize": 			16px,		// HTML font size, for the use.rem option
+	"autoBorderBox":			true,		// Set to false if your CSS already has something like * {box-sizing:border-box}
 
+	// Use
+	"use": {
+		"rem": 					true,		// Use the rem unit instead of px
+		"attributeSelector": 	false 		// Build grid with [class^=] selector (true) or list of classes (false)? 
+	}
 	// Builds
 	"build": {
-		"container": 		true,			// Should build the .container CSS?
-		"responsiveText": 	true 			// Should build the .txt-breakpoint-position CSS? 
+		"container": 			true,		// Should build the .container CSS?
+		"responsiveText": 		true 		// Should build the .txt-breakpoint-position CSS? 
 	},
 	// Columns
-	"columns": 				12,			// Number of columns in the grid
+	"columns": 					12,			// Number of columns in the grid
 
 	// Spacing
-	"gutterType": 			"margin", 	// Gutter Type <margin,padding>. If 'margin', calc() is used
+	"gutterType": 				"margin", 	// Gutter Type <margin,padding>. If 'margin', calc() is used
 	"spaces":
 	{
-		"gutter": 			16px,	// Gutter size
-		"padding": 			32px	// .container--padded padding size
-	},
+		"gutter": 				16px,		// Gutter size
+		"padding": 				32px		// .container--padded padding size
+	},	
 	// Breakpoint Stuff
 	"breakpoints": {
 		"xs": {
-			"breakpoint": 0,		// Breakpoint min size = @media(min-width:xxx)
+			"breakpoint": 0,		
 		},
 		"sm": {
-			"breakpoint": 767px,	// Breakpoint min size = @media(min-width:xxx)
-			"container": 740px		// Container max-width
+			"breakpoint": 767px,			// Breakpoint min size = @media(min-width:xxx)
+			"container": 740px				// Container max-width
 		},
 		"md": {
 			"breakpoint": 991px,

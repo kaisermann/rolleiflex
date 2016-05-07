@@ -14,6 +14,7 @@ gulp.task('build', function()
 	var tasks = files.map(function(e)
 	{
         return gulp.src(e[0])
+			.pipe($.plumber())
 			.pipe($.stylus())
 			.pipe($.autoprefixer(browserString))
 			.pipe($.rename(e[2]))

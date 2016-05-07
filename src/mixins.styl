@@ -1,9 +1,26 @@
 gUnit(p)
-	if(rolleiflex.useRem)
+	if(rolleiflex.use.rem)
 		return unit(p / rolleiflex.baseFontSize, "rem")
 	return unit(p,"px")
 	
-makeBreakpointGrid(scaleName)
+--getColBase()
+	if(rolleiflex.autoBorderBox)
+			box-sizing border-box
+			
+	spaceType = padding
+	colWidth = 100%
+	
+	if(rolleiflex.gutterType == "margin")
+		spaceType = margin
+		colWidth = "calc(%s - %s)" % (100% rolleiflex.spaces.gutter)
+	
+	{spaceType}-right: gUnit(rolleiflex.spaces.gutter / 2)
+	{spaceType}-left: gUnit(rolleiflex.spaces.gutter / 2)
+	width colWidth
+		
+	flex 0 0 auto
+	
+--makeBreakpointGrid(scaleName)
 	.row--{scaleName}-start
 		justify-content flex-start
 		
@@ -27,6 +44,14 @@ makeBreakpointGrid(scaleName)
 		
 	.row--{scaleName}-between
 		justify-content space-between
+
+	if(!rolleiflex.use.attributeSelector)
+		_colSelector = ".col--" + scaleName + ","
+		for i in 1..rolleiflex.columns
+			_colSelector += "," + ".col--" + scaleName + "-" + i
+			
+		{_colSelector}
+			--getColBase()		
 
 	/* Auto Columns */
 	.col--{scaleName}
@@ -57,11 +82,6 @@ makeBreakpointGrid(scaleName)
 			
 		.col--{scaleName}-offset-{col}
 			margin-left: finalWidth
-			
-	/* Text alignment helpers */
-	for alignment in (left center right)
-		.txt--{scaleName}-{alignment}
-			text-align: alignment
 		
 	.col--{scaleName}-first
 		order -1
@@ -77,6 +97,11 @@ makeBreakpointGrid(scaleName)
 		
 	.col--{scaleName}-bottom
 		align-self flex-end
+			
+	/* Text alignment helpers */
+	for alignment in (left center right)
+		.txt--{scaleName}-{alignment}
+			text-align: alignment
 			
 makeGrid()
 	if(rolleiflex.build.container)
@@ -107,27 +132,16 @@ makeGrid()
 		
 	.row--dir-reverse-col
 		flex-direction column-reverse
-
-	[class^=col--]
-		if(rolleiflex.autoBorderBox)
-			box-sizing border-box
-			
-		spaceType = padding
-		colWidth = 100%
-		
-		if(rolleiflex.gutterType == "margin")
-			spaceType = margin
-			colWidth = "calc(%s - %s)" % (100% rolleiflex.spaces.gutter)
-		
-		{spaceType}-right: gUnit(rolleiflex.spaces.gutter / 2)
-		{spaceType}-left: gUnit(rolleiflex.spaces.gutter / 2)
-		width colWidth
-			
-		flex 0 0 auto
+	
+	_colSelector = ""
+	
+	if(rolleiflex.use.attributeSelector)
+		[class^=col--]
+			--getColBase()
 
 	for scaleName, scaleOptions in rolleiflex.breakpoints
 		if(scaleOptions.breakpoint == 0)
-			makeBreakpointGrid(scaleName)
+			--makeBreakpointGrid(scaleName)
 		else
 			@media (min-width gUnit(scaleOptions.breakpoint))
 			
@@ -135,5 +149,5 @@ makeGrid()
 					.container
 						max-width: gUnit(scaleOptions.container)
 					
-				makeBreakpointGrid(scaleName)
+				--makeBreakpointGrid(scaleName)
 				

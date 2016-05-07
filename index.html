@@ -7,7 +7,7 @@
 </head>
 <body>
 	<section class="title bg--blue">
-	<div class="container txt--xs-center">
+		<div class="container txt--xs-center">
 			<header class="section__header">
 				<h1>RolleiFLEX</h1>
 				<p>Just a responsive flexbox grid</p>
@@ -227,6 +227,63 @@
 					<div class="col--xs-12"><div class="col-content txt--xs-center col-content--small bg--yellow">
 						<span class="bold-xs">.col--xs-12</span>
 					</div></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="offset bg--brown">
+		<div class="container">
+			<header class="section__header color--white">
+				<h2>Nestable</h2>
+				<p>
+				*inception sound*
+				<br>
+					<small>
+						Please do note that if your sub-row parent is another 'display: flex' element, don't forget to set its width to 100% (or desired width).
+					</small>
+				</p>
+			</header>
+			<div class="grid nested color--black txt--xs-center">
+				<div class="row">
+					<div class="col--xs-12">
+						<div class="nested-col bg--purple">
+							<div class="row">
+								<div class="col--xs-3">
+									<div class="nested-col bg--red">
+										<div class="row">
+											<div class="col--xs-6"><div class="col-content bg--green">I</div></div>
+											<div class="col--xs-6"><div class="col-content bg--green">N</div></div>
+										</div>
+									</div>
+								</div>
+								<div class="col--xs-3">
+									<div class="nested-col bg--red">
+										<div class="row">
+											<div class="col--xs-6"><div class="col-content bg--green">C</div></div>
+											<div class="col--xs-6"><div class="col-content bg--green">E</div></div>
+										</div>
+									</div>
+								</div>
+								<div class="col--xs-3">
+									<div class="nested-col bg--red">
+										<div class="row">
+											<div class="col--xs-6"><div class="col-content bg--green">P</div></div>
+											<div class="col--xs-6"><div class="col-content bg--green">T</div></div>
+										</div>
+									</div>
+								</div>
+								<div class="col--xs-3">
+									<div class="nested-col bg--red">
+										<div class="row">
+											<div class="col--xs-4"><div class="col-content bg--green">I</div></div>
+											<div class="col--xs-4"><div class="col-content bg--green">O</div></div>
+											<div class="col--xs-4"><div class="col-content bg--green">N</div></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -639,11 +696,16 @@
 					</div>
 
 					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.useRem</span> <span class="config__attr-default">false</span> Use the rem unit instead of px
+						<span class="config__attr-name">rolleiflex.autoBorderBox</span> <span class="config__attr-default">true</span> Set to false if your CSS already has something like * {box-sizing: border-box}
+					</div>
+
+
+					<div class="config__attr">
+						<span class="config__attr-name">rolleiflex.use.rem</span> <span class="config__attr-default">false</span> Use the rem unit instead of px
 					</div>
 
 					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.autoBorderBox</span> <span class="config__attr-default">true</span> Set to false if your CSS already has something like * {box-sizing: border-box}
+						<span class="config__attr-name">rolleiflex.use.attributeSelector</span> <span class="config__attr-default">true</span> Build grid with [class^=] selector (true) or list of classes (false)? 
 					</div>
 
 
@@ -686,14 +748,14 @@
 			</section>
 			<section class="download bg--green">
 				<div class="container txt--xs-center">
-						<header class="section__header color--black ">
-							<h1>Download</h1>
-						</header>
-						<div class="download-links">
-							<a href="https://github.com/kaisermann/rolleiflex/archive/v1.0.1.zip">Download</a> 
-							<a href="https://github.com/kaisermann/rolleiflex">GitHub</a> 
-						</div>
-						</section>
+					<header class="section__header color--black ">
+						<h1>Download</h1>
+					</header>
+					<div class="download-links">
+						<a href="https://github.com/kaisermann/rolleiflex/archive/v1.0.1.zip">Download</a> 
+						<a href="https://github.com/kaisermann/rolleiflex">GitHub</a> 
+					</div>
+				</section>
 			</div>
 			<script>
 				String.prototype.escapeHTML = function () 
