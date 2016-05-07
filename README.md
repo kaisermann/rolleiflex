@@ -1,6 +1,8 @@
 # RolleiFLEX
 
-A 'bootstrapy' css grid using flexbox (what else? <3)<br>
+A 'declarative'/'bootstrapy' flexbox CSS grid (<3)
+
+## Demo
 http://kaisermann.github.io/rolleiflex/
 
 ## Installation
