@@ -13,8 +13,8 @@ http://kaisermann.github.io/rolleiflex/
 
 ### Manual
 
-* [(Declarative Build) Minified CSS](https://raw.githubusercontent.com/kaisermann/rolleiflex/master/dist/rolleiflex.declarative.css)
-* [(Declarative Build) Unminified CSS](https://raw.githubusercontent.com/kaisermann/rolleiflex/master/dist/rolleiflex.declarative.min.css)
+* [(Declarative Build) Minified CSS](https://raw.githubusercontent.com/kaisermann/rolleiflex/master/dist/rolleiflex.declarative.min.css)
+* [(Declarative Build) Unminified CSS](https://raw.githubusercontent.com/kaisermann/rolleiflex/master/dist/rolleiflex.declarative.css)
 * [Minified CSS](https://raw.githubusercontent.com/kaisermann/rolleiflex/master/dist/rolleiflex.min.css)
 * [Unminified CSS](https://raw.githubusercontent.com/kaisermann/rolleiflex/master/dist/rolleiflex.css)
 
