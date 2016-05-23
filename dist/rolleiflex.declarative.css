@@ -1,3 +1,8 @@
+max-width 100% {
+  -webkit-flex: 1 0 0;
+      -ms-flex: 1 0 0;
+          flex: 1 0 0;
+}
 .container {
   width: 100%;
   margin-right: auto;
@@ -41,9 +46,9 @@
   padding-right: 0.5rem;
   padding-left: 0.5rem;
   width: 100%;
-  -webkit-flex: 1 0 0;
-      -ms-flex: 1 0 0;
-          flex: 1 0 0;
+  -webkit-flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
 }
 [row][align-xs='start'] {
   -webkit-justify-content: flex-start;
