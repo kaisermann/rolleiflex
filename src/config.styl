@@ -1,17 +1,17 @@
 rolleiflex = {
 	// Configurations 
-	"baseFontSize": 			16px,		// HTML font size, for the use.rem option
+	"baseFontSize": 			16px,		// HTML font size, for the use.em option
 	"autoBorderBox":			true,		// Set to false if your CSS already has something like * {box-sizing:border-box}
 	
 	// Use
 	"use": {
-		"rem": 					true,		// Use the rem unit instead of px (true or false)
+		"em": 					false,		// Use the em unit instead of px (true or false)
 	},
 	// Builds
 	"build": {
 		"container": 			true,		// Should build the .container CSS?
 		"responsiveText": 		true, 		// Should build the .txt-breakpoint-position CSS? 
-		"declarative": 			true 		// Should build the grid with its declarative syntax?
+		"declarative": 			false 		// Should build the grid with its declarative syntax?
 	},
 	"declarativePrefix": 		""		 	// Declarative syntax prefix (string), for build.declarative = true
 	

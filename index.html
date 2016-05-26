@@ -744,7 +744,7 @@
 				</header>
 				<div class="config">
 					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.baseFontSize</span> <span class="config__attr-default">16px</span> HTML font size, for the useRem option
+						<span class="config__attr-name">rolleiflex.baseFontSize</span> <span class="config__attr-default">16px</span> HTML font size, for the use.em option
 					</div>
 
 					<div class="config__attr">
@@ -756,7 +756,10 @@
 					<br>
 
 					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.use.rem</span> <span class="config__attr-default">false</span> Use the rem unit instead of px
+						<span class="config__attr-name">rolleiflex.use.em</span> <span class="config__attr-default">false</span> Use the em unit instead of px. 
+						<br>
+						<br>
+						Note: media queries em/rem units will ignore your HTML's font-size property, since they're are based on the browser's internal 'font-size' property.
 					</div>
 
 					<br>
@@ -803,7 +806,6 @@
 					<br>
 					<br>
 					<br>
-
 
 					<div class="config__attr">
 						<span class="config__attr-name">rolleiflex.breakpoints.XX.breakpoint</span> Breakpoint max size = @media(max-width:xxx)</div>
