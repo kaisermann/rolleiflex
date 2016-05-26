@@ -8,10 +8,7 @@ var $ = require('gulp-load-plugins')();
 // Autoprefixer browser string
 var browserString = 'last 2 versions';
 
-var endFile = "rolleiflex";
-
-if(!!argv.endfile)
-	endFile = argv.endfile;
+var endFile = (argv.endfile) ? argv.endfile : "rolleiflex";
 
 gulp.task('build', function() 
 {
@@ -23,6 +20,7 @@ gulp.task('build', function()
 			.pipe($.plumber())
 			.pipe($.stylus())
 			.pipe($.autoprefixer(browserString))
+			.pipe($.stripCssComments())
 			.pipe($.rename(e[2]))
 			.pipe(gulp.dest(e[1]));
     });

@@ -329,16 +329,19 @@
 	<section class="no-gutter bg--red">
 		<div class="container">
 			<header class="section__header color--white">
-				<h2>Remove Gutter <small>(padding spaced build only)</small></h2>
+				<h2>Remove Gutter</h2>
+				<p>
+					[no-gutter]/{row|col} can be used on rows and columns to individually remove the gutter between columns.
+				</p>
 			</header>
 			<div class="grid nested color--white">
 				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">[row-no-gutter]<br>.row--no-gutter</span>
-					<div row  row-no-gutter class="row txt--xs-center row--no-gutter">
-						<div col size-xs="6" class="col--xs-6">
+					<span class="row-wrapper__title color--black">[row|col][no-gutter]<br>.{row|col}--no-gutter</span>
+					<div row no-gutter class="row txt--xs-center row--no-gutter">
+						<div col no-gutter size-xs="6" class="col--xs-6 col--no-gutter">
 							<div class="col-content bg--blue">>>></div>
 						</div>
-						<div col size-xs="6" class="col--xs-6">
+						<div col no-gutter size-xs="6" class="col--xs-6 col--no-gutter">
 							<div class="col-content bg--blue"><<<</div>
 						</div>
 					</div>

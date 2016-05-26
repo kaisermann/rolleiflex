@@ -21,8 +21,7 @@ gUnit(p)
 	padding-left: gUnit(rolleiflex.spaces.gutter / 2)
 	width 100%
 	flex-basis 100%
-    max-width 100%
-		
+	max-width 100%		
 	flex 1 0 0
 	
 --makeBreakpointGrid(scaleName)
@@ -142,6 +141,14 @@ makeGrid()
 					
 	+--chooseSelector("["+dp+"col]","[class^=col--]")
 		--getColBase()
+		
+	+--chooseSelector("["+dp+"row][no-gutter]",".row--no-gutter")
+		margin-left 0
+		margin-right 0
+		
+	+--chooseSelector("["+dp+"col][no-gutter]",".col--no-gutter")
+		padding-left 0
+		padding-right 0
 
 	for scaleName, scaleOptions in rolleiflex.breakpoints
 		if(scaleOptions.breakpoint == 0)
@@ -156,7 +163,8 @@ makeGrid()
 				--makeBreakpointGrid(scaleName)
 		
 	
-	+--chooseSelector("["+dp+"row-no-gutter]",".row--no-gutter")
+	/*
+		+--chooseSelector("["+dp+"row-no-gutter]",".row--no-gutter")
 		margin-left 0
 		margin-right 0
 			
@@ -168,6 +176,7 @@ makeGrid()
 		{sel}
 			padding-left 0
 			padding-right 0	
+	*/
 			
 	+--chooseSelector("["+dp+"row-equal-height]",".row--equal-height")
 		sel = ""
