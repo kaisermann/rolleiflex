@@ -134,9 +134,6 @@ h3
 	font-size 22px
 	margin-bottom 10px
 	
-strong
-	font-weight bold
-	
 section
 	padding 30px 15px
 	
@@ -195,13 +192,11 @@ for color, hex in _colors
 		display block
 		margin-bottom 10px
 		
-.row--vertical
-	min-height 400px
-	
-	[col]:not([offset-xs])
-		margin 10px 0
-		
-		
+[row='vertical']
+.row--dir-col
+.row--dir-reverse-col
+	height 400px
+			
 pre
 	color: _colors.black
 	background-color: _colors.white

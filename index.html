@@ -13,7 +13,7 @@
 				<p>Just a responsive flexbox grid</p>
 			</header>
 			<div class="download-links">
-				<a href="https://github.com/kaisermann/rolleiflex/archive/v1.1.0.zip">Download</a> 
+				<a href="https://github.com/kaisermann/rolleiflex/archive/v1.2.0.zip">Download</a> 
 				<a href="https://github.com/kaisermann/rolleiflex">GitHub</a> 
 			</div>
 		</div>
@@ -33,7 +33,7 @@
 					<div col size="6" class="col--6">
 						<div class="col-content txt--xs-center bg--purple">size="6"</div>
 					</div>
-					<div col size="6" class="col--6">
+					<div col size="6" size-md class="col--6">
 						<div class="col-content txt--xs-center bg--purple">size="6"</div>
 					</div>
 				</div>
@@ -143,9 +143,9 @@
 		--your other content--
 	</div>
 </div></code></pre>
-	<p>
-		<strong>Note: </strong>Oh, you don't need responsive columns? Forget about those size-breakpoint attributes, just use <strong>size="number Of Columns"</strong>!.
-	</p>
+			<p>
+				<strong>Note: </strong>Oh, you don't need responsive columns? Forget about those size-breakpoint attributes, just use <strong>size="number Of Columns"</strong>!.
+			</p>
 			<h3>"Bootstrappy"</h3>
 			<pre><code><div class="row">
 	<div class="col--md-6 col--sm-12 col--md-offset-2">
@@ -309,17 +309,34 @@
 	<section class="equalheight bg--green">
 		<div class="container">
 			<header class="section__header color--black">
-				<h2>Equal heights</h2>
+				<h2>Fill Height</h2>
+				<p>Need the column children to fill its height? </p>
 			</header>
 			<div class="grid nested color--black">
+				<h3>Used on rows</h3>
 				<div class="row-wrapper bg--purple">
-					<span class="row-wrapper__title color--white">[row-equal-height]<br>.row--equal-height</span>
-					<div row row-equal-height class="row txt--xs-center row--equal-height">
-						<div col size-xs="6" class="col--xs-6">
+					<span class="row-wrapper__title color--white">[row][fill]<br>.row--fill</span>
+					<div row fill class="row txt--xs-center row--fill">
+						<div col size-xs class="col--xs">
 							<div class="col-content col-content--big bg--yellow">This one has 120px of height</div>
 						</div>
-						<div col size-xs="6" class="col--xs-6">
+						<div col size-xs class="col--xs">
 							<div class="col-content bg--yellow">And this one is supposed to have 60px of height</div>
+						</div>
+					</div>
+				</div>
+				<h3>Used on columns</h3>
+				<div class="row-wrapper bg--purple">
+					<span class="row-wrapper__title color--white">[col][fill]<br>.col--fill</span>
+					<div row class="row txt--xs-center">
+						<div col size-xs class="col--xs col--fill">
+							<div class="col-content col-content--big bg--yellow">This one has 120px of height</div>
+						</div>
+						<div col size-xs class="col--xs">
+							<div class="col-content bg--yellow"><span><strong>WITHOUT </strong> the [fill] attribute</span></div>
+						</div>
+						<div col size-xs fill class="col--xs col--fill">
+							<div class="col-content bg--yellow"><span><strong>WITH </strong> the [fill] attribute</span></div>
 						</div>
 					</div>
 				</div>
@@ -354,492 +371,596 @@
 			<header class="section__header color--black">
 				<h2>Automatic column sizing</h2>
 				<p>Thanks for the flexibility of... flexboxes, you can use auto column sizing!
-			</header>
-			<div class="grid color--white">
-				<div row class="row">
-					<div col size="auto" class="col--auto"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs="auto"]<br>.col--xs-auto</span></div></div>
-				</div>
-				<div row class="row">
-					<div col size="auto" class="col--auto"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs="auto"]<br>.col--xs-auto</span></div></div>
-					<div col size="auto" class="col--auto"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs="auto"]<br>.col--xs-auto</span></div></div>
-				</div>
-				<div row class="row">
-					<div col size="auto" class="col--auto"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs="auto"]<br>.col--xs-auto</span></div></div>
-					<div col size="auto" class="col--auto"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs="auto"]<br>.col--xs-auto</span></div></div>
-					<div col size="auto" class="col--auto"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs="auto"]<br>.col--xs-auto</span></div></div>
-				</div>
-				<div row class="row">
-					<div col size="auto" class="col--auto"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs="auto"]<br>.col--xs-auto</span></div></div>
-					<div col size="auto" class="col--auto"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs="auto"]<br>.col--xs-auto</span></div></div>
-					<div col size="auto" class="col--auto"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs="auto"]<br>.col--xs-auto</span></div></div>
-					<div col size="auto" class="col--auto"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs="auto"]<br>.col--xs-auto</span></div></div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="alignment bg--purple">
-		<div class="container">
-			<header class="section__header color--white">
-				<h2>Responsive Rows and Columns Alignments</h2>
-				<p>Title pretty self explanatory, but you can align your columns relative to the main media queries.</p>
-			</header>
-			<div class="grid color--black">
-				<h3 class="color--white">Used on row elements</h3>
-				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">[align-xx="start"]<br>.row--xx-start</span>
-					<div row align-xs="start" class="row row--xs-start">
-						<div col size-xs="6" class="col--xs-6">
-							<div class="col-content bg--green"></div>
-						</div>
+				</header>
+				<div class="grid color--white">
+					<div row class="row">
+						<div col size class="col--xs"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs]<br>.col--xs</span></div></div>
 					</div>
-				</div>
-				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">[align-xx="center"]<br>.row--xx-center</span>
-					<div row align-xs="center" class="row row--xs-center">
-						<div col size-xs="6"class="col--xs-6">
-							<div class="col-content bg--green"></div>
-						</div>
+					<div row class="row">
+						<div col size class="col--xs"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs]<br>.col--xs</span></div></div>
+						<div col size class="col--xs"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs]<br>.col--xs</span></div></div>
 					</div>
-				</div>
-				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">[align-xx="end"]<br>.row--xx-end</span>
-					<div row align-xs="end" class="row row--xs-end">
-						<div col size-xs="6"class="col--xs-6">
-							<div class="col-content bg--green"></div>
-						</div>
+					<div row class="row">
+						<div col size class="col--xs"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs]<br>.col--xs</span></div></div>
+						<div col size class="col--xs"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs]<br>.col--xs</span></div></div>
+						<div col size class="col--xs"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs]<br>.col--xs</span></div></div>
 					</div>
-				</div>
-				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">[position-xx="top"]<br>.row--xx-top</span>
-					<div row position-xs="top" class="row row--xs-top">
-						<div col size-xs="4" class="col--xs-4">
-							<div class="col-content bg--green"></div>
-						</div>
-						<div col size-xs="4" class="col--xs-4">
-							<div class="col-content col-content--big bg--green"></div>
-						</div>
-						<div col size-xs="4" class="col--xs-4">
-							<div class="col-content bg--green"></div>
-						</div>
-					</div>
-				</div>
-				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">[position-xx="middle"]<br>.row--xx-middle</span>
-					<div row position-xs="middle" class="row row--xs-middle">
-						<div col size-xs="4" class="col--xs-4">
-							<div class="col-content bg--green"></div>
-						</div>
-						<div col size-xs="4" class="col--xs-4">
-							<div class="col-content col-content--big bg--green"></div>
-						</div>
-						<div col size-xs="4" class="col--xs-4">
-							<div class="col-content bg--green"></div>
-						</div>
-					</div>
-				</div>
-				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">[position-xx="bottom"]<br>.row--xx-bottom</span>
-					<div row position-xs="bottom" class="row row--xs-bottom">
-						<div col size-xs="4" class="col--xs-4">
-							<div class="col-content bg--green"></div>
-						</div>
-						<div col size-xs="4" class="col--xs-4">
-							<div class="col-content col-content--big bg--green"></div>
-						</div>
-						<div col size-xs="4" class="col--xs-4">
-							<div class="col-content bg--green"></div>
-						</div>
+					<div row class="row">
+						<div col size class="col--xs"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs]<br>.col--xs</span></div></div>
+						<div col size class="col--xs"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs]<br>.col--xs</span></div></div>
+						<div col size class="col--xs"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs]<br>.col--xs</span></div></div>
+						<div col size class="col--xs"><div class="col-content txt--xs-center bg--brown"><span class="bold-xs">[col][size-xs]<br>.col--xs</span></div></div>
 					</div>
 				</div>
 			</div>
-			<div class="grid color--black">
-				<h3 class="color--white">Used on column elements</h3>
-				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">[col-xx-align="start"]<br>.col--xx-start</span>
-					<div row class="row">
-						<div col size-xs="6" align-xs="start" class="col--xs-6 col--xs-start">
-							<div class="col-content txt--xs-center bg--green">
-								<span class="bold-xs">[align-xs="start"]<br>.col--xs-start</span>
-							</div>
-						</div>
-						<div col size-xs="6"class="col--xs-6">
-							<div class="col-content txt--xs-center col-content--big bg--green"></div>
-						</div>
-					</div>
-				</div>
-				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">[col-xx-align="middle"]<br>.col--xx-middle</span>
-					<div row class="row">
-						<div col size-xs="6" align-xs="middle" class="col--xs-6 col--xs-middle">
-							<div class="col-content txt--xs-center bg--green">
-								<span class="bold-xs">[align-xs="middle"]<br>.col--xs-middle</span>
-							</div>
-						</div>
-						<div col size-xs="6" class="col--xs-6">
-							<div class="col-content txt--xs-center col-content--big bg--green"></div>
-						</div>
-					</div>
-				</div>
-				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">[col-xx-align="end"]<br>.col--xx-end</span>
-					<div row class="row">
-						<div col size-xs="6" align-xs="end" class="col--xs-6 col--xs-end">
-							<div class="col-content txt--xs-center bg--green">
-								<span class="bold-xs">[align-xs="end"]<br>.col--xs-end</span>
-							</div>
-						</div>
-						<div col size-xs="6"class="col--xs-6">
-							<div class="col-content txt--xs-center col-content--big bg--green"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="text-alignment bg--red">
-		<div class="container">
-			<header class="section__header color--white">
-				<h2>Optional: Responsive Text Alignment</h2>
-			</header>
-			<div class="grid color--black">
-				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">.txt--xx-left|center|right</span>
-					<div row align-xs="center" class="row row--xs-center">
-						<div col size-xs="6" class="col--xs-6">
-							<div class="col-content bg--green txt--xs-center txt--md-right txt--sm-left">
-								<span class="bold-xs">.txt--xs-center</span>
-								<span class="bold-sm">.txt--sm-left</span>
-								<span class="bold-md">.txt--md-right</span>
+		</section>
+		<section class="alignment bg--purple">
+			<div class="container">
+				<header class="section__header color--white">
+					<h2>Responsive Rows and Columns Alignments</h2>
+					<p>Title pretty self explanatory, but you can align your columns relative to the main media queries.</p>
+				</header>
+				<div class="grid color--black">
+					<h3 class="color--white">Used on row elements</h3>
+					<div class="row-wrapper bg--yellow">
+						<span class="row-wrapper__title color--black">[row][align-xx="start"]<br>.row--xx-start</span>
+						<div row align-xs="start" class="row row--xs-start">
+							<div col size-xs="6" class="col--xs-6">
+								<div class="col-content bg--green"></div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="text-alignment bg--yellow">
-		<div class="container">
-			<header class="section__header color--black">
-				<h2>Column spacing</h2>
-				<p>You know, when you spent hours trying to equally space everything...</p>
-			</header>
-			<div class="grid color--white">
-				<div class="row-wrapper bg--blue">
-					<span class="row-wrapper__title color--white">[space-xs="around"]<br>.row--xx-around</span>
-					<div row space-xs="around" class="row row--xs-around">
-						<div col size-xs="2" class="col--xs-2">
-							<div class="col-content txt--xs-center bg--brown">
-								<span class="bold-xs">.col--xs-2</span>
+					<div class="row-wrapper bg--yellow">
+						<span class="row-wrapper__title color--black">[row][align-xx="center"]<br>.row--xx-center</span>
+						<div row align-xs="center" class="row row--xs-center">
+							<div col size-xs="6"class="col--xs-6">
+								<div class="col-content bg--green"></div>
 							</div>
 						</div>
-						<div col size-xs="4" class="col--xs-4">
-							<div class="col-content txt--xs-center bg--brown">
-								<span class="bold-xs">.col--xs-4</span>
+					</div>
+					<div class="row-wrapper bg--yellow">
+						<span class="row-wrapper__title color--black">[row][align-xx="end"]<br>.row--xx-end</span>
+						<div row align-xs="end" class="row row--xs-end">
+							<div col size-xs="6"class="col--xs-6">
+								<div class="col-content bg--green"></div>
 							</div>
 						</div>
-						<div col size-xs="2" class="col--xs-2">
-							<div class="col-content txt--xs-center bg--brown">
-								<span class="bold-xs">.col--xs-2</span>
+					</div>
+					<div class="row-wrapper bg--yellow">
+						<span class="row-wrapper__title color--black">[row][position-xx="top"]<br>.row--xx-top</span>
+						<div row position-xs="top" class="row row--xs-top">
+							<div col size-xs="4" class="col--xs-4">
+								<div class="col-content bg--green"></div>
+							</div>
+							<div col size-xs="4" class="col--xs-4">
+								<div class="col-content col-content--big bg--green"></div>
+							</div>
+							<div col size-xs="4" class="col--xs-4">
+								<div class="col-content bg--green"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row-wrapper bg--yellow">
+						<span class="row-wrapper__title color--black">[row][position-xx="middle"]<br>.row--xx-middle</span>
+						<div row position-xs="middle" class="row row--xs-middle">
+							<div col size-xs="4" class="col--xs-4">
+								<div class="col-content bg--green"></div>
+							</div>
+							<div col size-xs="4" class="col--xs-4">
+								<div class="col-content col-content--big bg--green"></div>
+							</div>
+							<div col size-xs="4" class="col--xs-4">
+								<div class="col-content bg--green"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row-wrapper bg--yellow">
+						<span class="row-wrapper__title color--black">[row][position-xx="bottom"]<br>.row--xx-bottom</span>
+						<div row position-xs="bottom" class="row row--xs-bottom">
+							<div col size-xs="4" class="col--xs-4">
+								<div class="col-content bg--green"></div>
+							</div>
+							<div col size-xs="4" class="col--xs-4">
+								<div class="col-content col-content--big bg--green"></div>
+							</div>
+							<div col size-xs="4" class="col--xs-4">
+								<div class="col-content bg--green"></div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row-wrapper bg--blue">
-					<span class="row-wrapper__title color--white">[space-xs="between"]<br>.row--xx-between</span>
-					<div row space-xs="between" class="row row--xs-start row--xs-between">
-						<div col size-xs="2" class="col--xs-2">
-							<div class="col-content txt--xs-center bg--brown">
-								<span class="bold-xs">.col--xs-2</span>
+				<div class="grid color--black">
+					<h3 class="color--white">Used on column elements</h3>
+					<div class="row-wrapper bg--yellow">
+						<span class="row-wrapper__title color--black">[col][align-xx]="start"]<br>.col--xx-start</span>
+						<div row class="row">
+							<div col size-xs="6" align-xs="start" class="col--xs-6 col--xs-start">
+								<div class="col-content txt--xs-center bg--green">
+									<span class="bold-xs">[align-xs="start"]<br>.col--xs-start</span>
+								</div>
 							</div>
-						</div>
-						<div col size-xs="4" class="col--xs-4">
-							<div class="col-content txt--xs-center bg--brown">
-								<span class="bold-xs">.col--xs-4</span>
-							</div>
-						</div>
-						<div col size-xs="2" class="col--xs-2">
-							<div class="col-content txt--xs-center bg--brown">
-								<span class="bold-xs">.col--xs-2</span>
+							<div col size-xs="6"class="col--xs-6">
+								<div class="col-content txt--xs-center col-content--big bg--green"></div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="ordering bg--gray">
-		<div class="container">
-			<header class="section__header color--white">
-				<h2>Row Ordering</h2>
-				<p>Why not change your html order without changing the markup?</p>
-			</header>
-			<div class="grid color--white">
-				<h3 class="color--white">Used on column elements</h3>
-				<div class="row-wrapper bg--white">
-					<span class="row-wrapper__title color--black">[order-xx="last"]<br>.col--xx-last</span>
-					<div row class="row">
-						<div col size-xs="3" order-xs="last" class="col--xs-3 col--xs-last">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">1 <br> [order-xs="last"] <br> (.col--xs-last)</span>
+					<div class="row-wrapper bg--yellow">
+						<span class="row-wrapper__title color--black">[col][align-xx="middle"]<br>.col--xx-middle</span>
+						<div row class="row">
+							<div col size-xs="6" align-xs="middle" class="col--xs-6 col--xs-middle">
+								<div class="col-content txt--xs-center bg--green">
+									<span class="bold-xs">[align-xs="middle"]<br>.col--xs-middle</span>
+								</div>
 							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">2</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">3</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">4</span>
+							<div col size-xs="6" class="col--xs-6">
+								<div class="col-content txt--xs-center col-content--big bg--green"></div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row-wrapper bg--white">
-					<span class="row-wrapper__title color--black">[order-xx="first"]<br>.col--xx-first</span>
-					<div row class="row">
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">1</span>
+					<div class="row-wrapper bg--yellow">
+						<span class="row-wrapper__title color--black">[col][align-xx="end"]<br>.col--xx-end</span>
+						<div row class="row">
+							<div col size-xs="6" align-xs="end" class="col--xs-6 col--xs-end">
+								<div class="col-content txt--xs-center bg--green">
+									<span class="bold-xs">[align-xs="end"]<br>.col--xs-end</span>
+								</div>
 							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">2</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">3</span>
-							</div>
-						</div>
-						<div col size-xs="3" order-xs="first" class="col--xs-3 col--xs-first">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">4 <br> [order-xs="first"] <br> (.col--xs-first)</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="grid color--white">
-				<h3 class="color--white">Used on row elements</h3>
-				<div class="row-wrapper bg--white">
-					<span class="row-wrapper__title color--black">[row]<br>.row</span>
-					<div row class="row">
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">1</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">2</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">3</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">4</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row-wrapper bg--white">
-					<span class="row-wrapper__title color--black">[row-reverse]<br>.row--dir-reverse-row</span>
-					<div row row-reverse class="row row--dir-reverse-row">
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">1</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">2</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">3</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">4</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row-wrapper bg--white">
-					<span class="row-wrapper__title color--black">[row="vertical"]<br>.row--dir-col</span>
-					<div row="vertical" class="row row--dir-col row--vertical">
-						<div col size-xs="3" size-md="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">1</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">2</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">3</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">4</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row-wrapper bg--white">
-					<span class="row-wrapper__title color--black">[row="vertical"][row-reverse]<br>.row--dir-reverse-col</span>
-					<div row="vertical" row-reverse space-xs="between" class="row row--dir-reverse-col row--vertical">
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">1</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">2</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">3</span>
-							</div>
-						</div>
-						<div col size-xs="3" class="col--xs-3">
-							<div class="col-content txt--xs-center bg--red">
-								<span class="bold-xs">4</span>
+							<div col size-xs="6"class="col--xs-6">
+								<div class="col-content txt--xs-center col-content--big bg--green"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<section class="stylus bg--brown">
+		<section class="text-alignment bg--red">
 			<div class="container">
 				<header class="section__header color--white">
-					<h2>Stylus</h2>
-					<p>
-						Want to change some default configuration?
-						<br>
-						Check the 'src/config.styl' or override any 'rolleiflex' attribute inside your own stylus stylesheet.
-						<br><br>
-						<strong>Note: if you prefer to import the stylus stylesheet, import the 'src/wrapper.styl' and do not forget to call the 'makeGrid()' mixin.</strong>
-					</p>
+					<h2>Optional: Responsive Text Alignment</h2>
 				</header>
-				<div class="config">
-					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.baseFontSize</span> <span class="config__attr-default">16px</span> HTML font size, for the use.em option
-					</div>
-
-					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.autoBorderBox</span> <span class="config__attr-default">true</span> Set to false if your CSS already has something like * {box-sizing: border-box}
-					</div>
-
-					<br>
-					<br>
-					<br>
-
-					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.use.em</span> <span class="config__attr-default">false</span> Use the em unit instead of px. 
-						<br>
-						<br>
-						Note: media queries em/rem units will ignore your HTML's font-size property, since they're are based on the browser's internal 'font-size' property.
-					</div>
-
-					<br>
-					<br>
-					<br>
-
-					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.build.container</span> <span class="config__attr-default">true</span> Should build the .container CSS? True or false.
-					</div>
-
-					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.build.responsiveText</span> <span class="config__attr-default">true</span> Should build the .txt-breakpoint-position CSS? True or False.
-					</div>
-
-					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.build.declarative</span> <span class="config__attr-default">true</span> Should build the grid with its declarative syntax?
-					</div>
-
-					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.declarativePrefix</span> <span class="config__attr-default">""</span> If build.declarative is 'true', what should be the attributes prefix? (prefix-row, prefix-col, etc)
-					</div>
-
-
-					<br>
-					<br>
-					<br>
-
-					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.columns</span> <span class="config__attr-default">12</span> Number of columns in the grid
-					</div>
-
-					<br>
-					<br>
-					<br>
-
-					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.spaces.gutter</span> <span class="config__attr-default">8px</span> Gutter size
-					</div>
-
-					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.spaces.padding</span> <span class="config__attr-default">32px</span> .container--padded padding size
-					</div>
-
-					<br>
-					<br>
-					<br>
-
-					<div class="config__attr">
-						<span class="config__attr-name">rolleiflex.breakpoints.XX.breakpoint</span> Breakpoint max size = @media(max-width:xxx)</div>
-
-						<div class="config__attr">
-							<span class="config__attr-name">rolleiflex.breakpoints.XX.container</span> Container max-width
+				<div class="grid color--black">
+					<div class="row-wrapper bg--yellow">
+						<span class="row-wrapper__title color--black">.txt--xx-{left|center|right}</span>
+						<div row align-xs="center" class="row row--xs-center">
+							<div col size-xs="6" class="col--xs-6">
+								<div class="col-content bg--green txt--xs-center txt--md-right txt--sm-left">
+									<span class="bold-xs">.txt--xs-center</span>
+									<span class="bold-sm">.txt--sm-left</span>
+									<span class="bold-md">.txt--md-right</span>
+								</div>
+							</div>
 						</div>
-
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="text-alignment bg--yellow">
+			<div class="container">
+				<header class="section__header color--black">
+					<h2>Column spacing</h2>
+					<p>You know, when you spent hours trying to equally space everything...</p>
+				</header>
+				<div class="grid color--white">
+					<div class="row-wrapper bg--blue">
+						<span class="row-wrapper__title color--white">[row][space-xs="around"]<br>.row--xx-around</span>
+						<div row space-xs="around" class="row row--xs-around">
+							<div col size-xs="2" class="col--xs-2">
+								<div class="col-content txt--xs-center bg--brown">
+									<span class="bold-xs">.col--xs-2</span>
+								</div>
+							</div>
+							<div col size-xs="4" class="col--xs-4">
+								<div class="col-content txt--xs-center bg--brown">
+									<span class="bold-xs">.col--xs-4</span>
+								</div>
+							</div>
+							<div col size-xs="2" class="col--xs-2">
+								<div class="col-content txt--xs-center bg--brown">
+									<span class="bold-xs">.col--xs-2</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row-wrapper bg--blue">
+						<span class="row-wrapper__title color--white">[row][space-xs="between"]<br>.row--xx-between</span>
+						<div row space-xs="between" class="row row--xs-start row--xs-between">
+							<div col size-xs="2" class="col--xs-2">
+								<div class="col-content txt--xs-center bg--brown">
+									<span class="bold-xs">.col--xs-2</span>
+								</div>
+							</div>
+							<div col size-xs="4" class="col--xs-4">
+								<div class="col-content txt--xs-center bg--brown">
+									<span class="bold-xs">.col--xs-4</span>
+								</div>
+							</div>
+							<div col size-xs="2" class="col--xs-2">
+								<div class="col-content txt--xs-center bg--brown">
+									<span class="bold-xs">.col--xs-2</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="ordering bg--gray">
+			<div class="container">
+				<header class="section__header color--white">
+					<h2>Row Ordering</h2>
+					<p>Why not change your html order without changing the markup?</p>
+				</header>
+				<div class="grid color--white">
+					<h3 class="color--white">Used on column elements</h3>
+					<div class="row-wrapper bg--white">
+						<span class="row-wrapper__title color--black">[col][order-xx="last"]<br>.col--xx-last</span>
+						<div row class="row">
+							<div col size-xs="3" order-xs="last" class="col--xs-3 col--xs-last">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">1 <br> [order-xs="last"] <br> (.col--xs-last)</span>
+								</div>
+							</div>
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">2</span>
+								</div>
+							</div>
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">3</span>
+								</div>
+							</div>
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">4</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row-wrapper bg--white">
+						<span class="row-wrapper__title color--black">[col][order-xx="first"]<br>.col--xx-first</span>
+						<div row class="row">
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">1</span>
+								</div>
+							</div>
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">2</span>
+								</div>
+							</div>
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">3</span>
+								</div>
+							</div>
+							<div col size-xs="3" order-xs="first" class="col--xs-3 col--xs-first">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">4 <br> [order-xs="first"] <br> (.col--xs-first)</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="grid color--white">
+					<h3 class="color--white">Used on row elements</h3>
+					<div class="row-wrapper bg--white">
+						<span class="row-wrapper__title color--black">[row]<br>.row</span>
+						<div row class="row">
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">1</span>
+								</div>
+							</div>
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">2</span>
+								</div>
+							</div>
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">3</span>
+								</div>
+							</div>
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">4</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row-wrapper bg--white">
+						<span class="row-wrapper__title color--black">[row][reverse]<br>.row--reverse</span>
+						<div row reverse class="row row--reverse">
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">1</span>
+								</div>
+							</div>
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">2</span>
+								</div>
+							</div>
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">3</span>
+								</div>
+							</div>
+							<div col size-xs="3" class="col--xs-3">
+								<div class="col-content txt--xs-center bg--red">
+									<span class="bold-xs">4</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row-wrapper bg--white">
+						<span class="row-wrapper__title color--black">[row="vertical"]<br>.row--dir-col</span> 
+						<div row="" class="row">
+							<div col="" size="" class="col--xs">
+								<div row="vertical" fill class="row row--dir-col row--vertical row--fill">
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">1</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">2</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">3</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">4</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div col="" size="" class="col--xs">
+								<div row="vertical" fill class="row row--dir-col row--vertical row--fill">
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">5</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">6</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">7</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">8</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div col="" size="" class="col--xs">
+								<div row="vertical" fill class="row row--dir-col row--vertical row--fill">
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">9</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">10</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">11</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">12</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row-wrapper bg--white">
+						<span class="row-wrapper__title color--black">[row="vertical"][reverse]<br>.row--dir-col.row--reverse</span>
+						<div row="" class="row">
+							<div col="" size="" class="col--xs">
+								<div row="vertical" reverse fill class="row row--dir-col row--reverse row--vertical row--fill">
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">1</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">2</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">3</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">4</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div col="" size="" class="col--xs">
+								<div row="vertical" reverse fill class="row row--dir-col row--reverse row--vertical row--fill">
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">5</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">6</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">7</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">8</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div col="" size="" class="col--xs">
+								<div row="vertical" reverse fill class="row row--dir-col row--reverse row--vertical row--fill">
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">9</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">10</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">11</span>
+										</div>
+									</div>
+									<div col size-xs="" class="col--xs-3">
+										<div class="col-content txt--xs-center bg--red">
+											<span class="bold-xs">12</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
-			<section class="download bg--green">
-				<div class="container txt--xs-center">
-					<header class="section__header color--black ">
-						<h1>Download</h1>
+			<section class="stylus bg--brown">
+				<div class="container">
+					<header class="section__header color--white">
+						<h2>Stylus</h2>
+						<p>
+							Want to change some default configuration?
+							<br>
+							Check the 'src/config.styl' or override any 'rolleiflex' attribute inside your own stylus stylesheet.
+							<br><br>
+							<strong>Note: if you prefer to import the stylus stylesheet, import the 'src/wrapper.styl' and do not forget to call the 'makeGrid()' mixin.</strong>
+						</p>
 					</header>
-					<div class="download-links">
-						<a href="https://github.com/kaisermann/rolleiflex/archive/v1.1.0.zip">Download</a> 
-						<a href="https://github.com/kaisermann/rolleiflex">GitHub</a> 
+					<div class="config">
+						<div class="config__attr">
+							<span class="config__attr-name">rolleiflex.baseFontSize</span> <span class="config__attr-default">16px</span> HTML font size, for the use.em option
+						</div>
+
+						<div class="config__attr">
+							<span class="config__attr-name">rolleiflex.autoBorderBox</span> <span class="config__attr-default">true</span> Set to false if your CSS already has something like * {box-sizing: border-box}
+						</div>
+
+						<br>
+						<br>
+						<br>
+
+						<div class="config__attr">
+							<span class="config__attr-name">rolleiflex.use.em</span> <span class="config__attr-default">false</span> Use the em unit instead of px. 
+							<br>
+							<br>
+							Note: media queries em/rem units will ignore your HTML's font-size property, since they're are based on the browser's internal 'font-size' property.
+						</div>
+
+						<br>
+						<br>
+						<br>
+
+						<div class="config__attr">
+							<span class="config__attr-name">rolleiflex.build.container</span> <span class="config__attr-default">true</span> Should build the .container CSS? True or false.
+						</div>
+
+						<div class="config__attr">
+							<span class="config__attr-name">rolleiflex.build.responsiveText</span> <span class="config__attr-default">true</span> Should build the .txt-breakpoint-position CSS? True or False.
+						</div>
+
+						<div class="config__attr">
+							<span class="config__attr-name">rolleiflex.build.declarative</span> <span class="config__attr-default">true</span> Should build the grid with its declarative syntax?
+						</div>
+
+						<div class="config__attr">
+							<span class="config__attr-name">rolleiflex.declarativePrefix</span> <span class="config__attr-default">""</span> If build.declarative is 'true', what should be the attributes prefix? (prefix-row, prefix-col, etc)
+						</div>
+
+
+						<br>
+						<br>
+						<br>
+
+						<div class="config__attr">
+							<span class="config__attr-name">rolleiflex.columns</span> <span class="config__attr-default">12</span> Number of columns in the grid
+						</div>
+
+						<br>
+						<br>
+						<br>
+
+						<div class="config__attr">
+							<span class="config__attr-name">rolleiflex.spaces.gutter</span> <span class="config__attr-default">8px</span> Gutter size
+						</div>
+
+						<div class="config__attr">
+							<span class="config__attr-name">rolleiflex.spaces.padding</span> <span class="config__attr-default">32px</span> .container--padded padding size
+						</div>
+
+						<br>
+						<br>
+						<br>
+
+						<div class="config__attr">
+							<span class="config__attr-name">rolleiflex.breakpoints.XX.breakpoint</span> Breakpoint max size = @media(max-width:xxx)</div>
+
+							<div class="config__attr">
+								<span class="config__attr-name">rolleiflex.breakpoints.XX.container</span> Container max-width
+							</div>
+
+						</div>
 					</div>
 				</section>
-			</div>
-			<script>
-				String.prototype.escapeHTML = function () 
-				{                                        
-					return(                                                                 
-						this.replace(/>/g,'&gt;').
-						replace(/</g,'&lt;').
-						replace(/"/g,'&quot;')
-						);
-				};
-				var pres = document.querySelectorAll('pre code');
-				for(var i = 0; i < pres.length; i++)
-					pres[i].innerHTML = pres[i].innerHTML.escapeHTML();
-			</script>
-		</body>
-		</html>
+				<section class="download bg--green">
+					<div class="container txt--xs-center">
+						<header class="section__header color--black ">
+							<h1>Download</h1>
+						</header>
+						<div class="download-links">
+							<a href="https://github.com/kaisermann/rolleiflex/archive/v1.2.0.zip">Download</a> 
+							<a href="https://github.com/kaisermann/rolleiflex">GitHub</a> 
+						</div>
+					</section>
+				</div>
+				<script>
+					String.prototype.escapeHTML = function () 
+					{                                        
+						return(                                                                 
+							this.replace(/>/g,'&gt;').
+							replace(/</g,'&lt;').
+							replace(/"/g,'&quot;')
+							);
+					};
+					var pres = document.querySelectorAll('pre code');
+					for(var i = 0; i < pres.length; i++)
+						pres[i].innerHTML = pres[i].innerHTML.escapeHTML();
+				</script>
+			</body>
+			</html>
