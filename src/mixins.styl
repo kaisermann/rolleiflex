@@ -1,4 +1,8 @@
 dp = rolleiflex.declarativePrefix
+declarative = rolleiflex.build.declarative
+
+rowSelector = dp+"row"
+colSelector = dp+"col"
 
 gUnit(p)
 	if(rolleiflex.use.em)
@@ -15,13 +19,15 @@ gUnit(p)
 	
 --makeBreakpointGrid(scaleName)
 
-	+--chooseSelector("["+dp+"row]["+dp+"align-"+scaleName+"='start']",".row--"+scaleName+"-start")
+	isFirstBP = rolleiflex.breakpoints[scaleName].breakpoint == 0
+
+	+--chooseSelector("["+rowSelector+"]["+dp+"align-"+scaleName+"='start']",".row--"+scaleName+"-start")
 		justify-content flex-start
 		
-	+--chooseSelector("["+dp+"row]["+dp+"align-"+scaleName+"='center']",".row--"+scaleName+"-center")
+	+--chooseSelector("["+rowSelector+"]["+dp+"align-"+scaleName+"='center']",".row--"+scaleName+"-center")
 		justify-content center
 		
-	+--chooseSelector("["+dp+"row]["+dp+"align-"+scaleName+"='end']",".row--"+scaleName+"-end")
+	+--chooseSelector("["+rowSelector+"]["+dp+"align-"+scaleName+"='end']",".row--"+scaleName+"-end")
 		justify-content flex-end
 
 	+--chooseSelector("["+dp+"position-"+scaleName+"='top']",".row--"+scaleName+"-top")
@@ -38,58 +44,54 @@ gUnit(p)
 		
 	+--chooseSelector("["+dp+"space-"+scaleName+"='between']",".row--"+scaleName+"-between")
 		justify-content space-between
-
-	if(!rolleiflex.build.declarative)
-		/* Auto Columns */
-		.col--{scaleName}
-			max-width 100%
-		
-	/* Columns */
-	for col in (1..rolleiflex.columns)
-		if(rolleiflex.build.declarative)
-			sel = "["+dp+"size-"+scaleName+"='"+col+"']"
-			
-			if(rolleiflex.breakpoints[scaleName].breakpoint == 0)
-				sel = "["+dp+"size='"+col+"']," + sel
-		else
-			sel = ".col--"+scaleName+"-"+col
-			
-			if(rolleiflex.breakpoints[scaleName].breakpoint == 0)
-				sel = ".col--"+col+", " + sel
-			
-		{sel}
-			percentageWidth = round(percentage(col/rolleiflex.columns),6)
-			finalWidth = percentageWidth
-				
-			flex-basis: finalWidth
-			max-width: finalWidth
 	
-	if(rolleiflex.build.declarative)
-		sel = "["+dp+"size-"+scaleName+"='auto']"
+	if(declarative)
+		sel = "["+dp+"size-"+scaleName+"]"
 		
-		if(rolleiflex.breakpoints[scaleName].breakpoint == 0)
-			sel = "["+dp+"size='auto']," + sel
+		if(isFirstBP)
+			sel = "["+dp+"size]," + sel
 	else
-		sel = ".col--"+scaleName+"-auto"
+		sel = ".col--"+scaleName
 		
-		if(rolleiflex.breakpoints[scaleName].breakpoint == 0)
-			sel = ".col--auto, " + sel
+		if(isFirstBP)
+			sel = ".col, " + sel
 			
 	{sel}
 		flex 1 0 0
 		max-width 100%
+		
+	for col in (1..rolleiflex.columns)
+		percentageWidth = round(percentage(col/rolleiflex.columns),6)
+		if(declarative)
+			sel = "["+dp+"size-"+scaleName+"='"+col+"']"
+			
+			if(isFirstBP)
+				sel = "["+dp+"size='"+col+"']," + sel
+		else
+			sel = ".col--"+scaleName+"-"+col
+			
+			if(isFirstBP)
+				sel = ".col--"+col+", " + sel
+			
+		{sel}
+			flex-basis: percentageWidth
+			max-width: percentageWidth
+			
+		+--chooseSelector("["+rowSelector+"='vertical'] ",".row--dir-col")
+			{sel}
+				max-height percentageWidth
+				max-width initial
 			
 	/* Columns Offset helpers */
 	for col in (1..(rolleiflex.columns - 1))
 		percentageWidth = round(percentage(col/rolleiflex.columns),6)
-		finalWidth = percentageWidth
 			
 		+--chooseSelector("["+dp+"offset-"+scaleName+"='"+col+"']",".col--"+scaleName+"-offset-"+col)
-			margin-left: finalWidth
+			margin-left: percentageWidth
 			
-		+--chooseSelector("["+dp+"row='vertical'] ["+dp+"offset-"+scaleName+"='"+col+"']",".row--dir-reverse-col .col--"+scaleName+"-offset-"+col", .row--dir-col .col--"+scaleName+"-offset-"+col)
+		+--chooseSelector("["+rowSelector+"='vertical'] ["+dp+"offset-"+scaleName+"='"+col+"']",".row--dir-col .col--"+scaleName+"-offset-"+col)
 			margin-left initial
-			margin-top: finalWidth
+			margin-top: percentageWidth
 		
 	+--chooseSelector("["+dp+"order-"+scaleName+"='first']",".col--"+scaleName+"-first")
 		order -1
@@ -97,13 +99,13 @@ gUnit(p)
 	+--chooseSelector("["+dp+"order-"+scaleName+"='last']",".col--"+scaleName+"-last")
 		order 1
 		
-	+--chooseSelector("["+dp+"col]["+dp+"align-"+scaleName+"='start']",".col--"+scaleName+"-start")
+	+--chooseSelector("["+colSelector+"]["+dp+"align-"+scaleName+"='start']",".col--"+scaleName+"-start")
 		align-self flex-start
 		
-	+--chooseSelector("["+dp+"col]["+dp+"align-"+scaleName+"='middle']",".col--"+scaleName+"-middle")
+	+--chooseSelector("["+colSelector+"]["+dp+"align-"+scaleName+"='middle']",".col--"+scaleName+"-middle")
 		align-self center
 
-	+--chooseSelector("["+dp+"col]["+dp+"align-"+scaleName+"='end']",".col--"+scaleName+"-end")
+	+--chooseSelector("["+colSelector+"]["+dp+"align-"+scaleName+"='end']",".col--"+scaleName+"-end")
 		align-self flex-end
 
 			
@@ -123,7 +125,7 @@ makeGrid()
 			padding-right: gUnit(rolleiflex.spaces.padding)
 			padding-left: gUnit(rolleiflex.spaces.padding)
 
-	+--chooseSelector("["+dp+"row]",".row")
+	+--chooseSelector("["+rowSelector+"]",".row")
 		if(rolleiflex.autoBorderBox)
 			box-sizing border-box
 		display flex
@@ -132,30 +134,45 @@ makeGrid()
 		margin-right: -(gUnit(rolleiflex.spaces.gutter / 2))
 		margin-left: -(gUnit(rolleiflex.spaces.gutter / 2))
 
-	+--chooseSelector("["+dp+"row='vertical']",".row--dir-col")
+	+--chooseSelector("["+rowSelector+"='vertical']",".row--dir-col")
 		flex-direction column
 		
-	+--chooseSelector("["+dp+"row-reverse]",".row--dir-reverse-row")
+	+--chooseSelector("["+rowSelector+"]["+dp+"reverse]",".row.row--reverse")
 		flex-direction row-reverse
 		
-	+--chooseSelector("["+dp+"row-reverse]["+dp+"row='vertical']",".row--dir-reverse-col")
+	+--chooseSelector("["+rowSelector+"='vertical']["+dp+"reverse]",".row--dir-col.row--reverse")
 		flex-direction column-reverse
 					
-	+--chooseSelector("["+dp+"col]","[class^=col--]")
+	+--chooseSelector("["+colSelector+"]","[class^=col--]")
+		display flex
+		flex-direction column
 		if(rolleiflex.autoBorderBox)
 			box-sizing border-box
 	
 		padding-right: gUnit(rolleiflex.spaces.gutter / 2)
 		padding-left: gUnit(rolleiflex.spaces.gutter / 2)
-		width 100%
-		flex-basis 100%
-		max-width 100%		
+		//max-width 100%
+		flex 0 0 100%
 		
-	+--chooseSelector("["+dp+"row][no-gutter]",".row--no-gutter")
+	+--chooseSelector("["+rowSelector+"='vertical']",".row--dir-col")
+		margin-left initial
+		margin-right initial
+		margin-top: -(gUnit(rolleiflex.spaces.gutter / 2))
+		margin-bottom: -(gUnit(rolleiflex.spaces.gutter / 2))
+		
+		> 
+			+--chooseSelector("["+colSelector+"]","[class^=col--]")
+				padding-left initial
+				padding-right initial
+				padding-top: gUnit(rolleiflex.spaces.gutter / 2)
+				padding-bottom: gUnit(rolleiflex.spaces.gutter / 2)
+		
+		
+	+--chooseSelector("["+rowSelector+"][no-gutter]",".row--no-gutter")
 		margin-left 0
 		margin-right 0
 		
-	+--chooseSelector("["+dp+"col][no-gutter]",".col--no-gutter")
+	+--chooseSelector("["+colSelector+"][no-gutter]",".col--no-gutter")
 		padding-left 0
 		padding-right 0
 
@@ -173,13 +190,13 @@ makeGrid()
 		
 	
 	/*
-		+--chooseSelector("["+dp+"row-no-gutter]",".row--no-gutter")
+		+--chooseSelector("["+rowSelector+"-no-gutter]",".row--no-gutter")
 		margin-left 0
 		margin-right 0
 			
 		sel = ""
-		if(rolleiflex.build.declarative)
-			sel = "> ["+dp+"col]"
+		if(declarative)
+			sel = "> ["+colSelector+"]"
 		else
 			sel = "> [class^='col--']"
 		{sel}
@@ -187,11 +204,16 @@ makeGrid()
 			padding-right 0	
 	*/
 			
-	+--chooseSelector("["+dp+"row-equal-height]",".row--equal-height")
+	+--chooseSelector("[row]["+dp+"fill]",".row--fill")
 		sel = ""
-		if(rolleiflex.build.declarative)
-			sel = "> ["+dp+"col]"
+		if(declarative)
+			sel = "> ["+colSelector+"]"
 		else
 			sel = "> [class^='col--']"
-		{sel}
-			display flex
+		{sel} 
+			> *
+				flex-grow 1	
+				
+	+--chooseSelector("[col]["+dp+"fill]",".col--fill")
+		> * 
+			flex-grow 1
