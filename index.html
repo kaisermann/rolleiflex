@@ -242,8 +242,8 @@
 					</div></div>
 				</div>
 				<div row class="row">
-					<div col size-xs="12" class="col--xs-12"><div class="col-content txt--xs-center col-content--small bg--yellow">
-						<span class="bold-xs">[size-xs="12"]<br>.col--xs-12</span>
+					<div col size-xs="12" offset-xs="0" class="col--xs-12 col--xs-offset-0"><div class="col-content txt--xs-center col-content--small bg--yellow">
+						<span class="bold-xs">[offset-xs="0"]<br>.col--xs-offset-0</span>
 					</div></div>
 				</div>
 			</div>
@@ -360,6 +360,29 @@
 						</div>
 						<div col no-gutter size-xs="6" class="col--xs-6 col--no-gutter">
 							<div class="col-content bg--blue"><<<</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="no-gutter bg--brown">
+		<div class="container">
+			<header class="section__header color--white">
+				<h2>No wrap</h2>
+				<p>
+					[row][no-wrap-xx]/row--xx-no-wrap can be used to remove the rows ability to wrap its child elements
+				</p>
+			</header>
+			<div class="grid nested color--white">
+				<div class="row-wrapper bg--purple">
+					<span class="row-wrapper__title color--white">[row][no-wrap-xx]<br>.row--xx-no-wrap</span>
+					<div row no-wrap-xs class="row txt--xs-center row--no-wrap-xs color--black">
+						<div col size-xs="12" class="col--xs-12">
+							<div class="col-content bg--yellow">100% width <br><br> [row][no-wrap-xs]<br>.row--xs-no-wrap</div>
+						</div>
+						<div col size-xs="12" class="col--xs-12">
+							<div class="col-content bg--yellow">100% width <br><br> [row][no-wrap-xs]<br>.row--xs-no-wrap</div>
 						</div>
 					</div>
 				</div>
@@ -951,8 +974,8 @@
 				</div>
 				<script>
 					String.prototype.escapeHTML = function () 
-					{                                        
-						return(                                                                 
+					{										
+						return(																 
 							this.replace(/>/g,'&gt;').
 							replace(/</g,'&lt;').
 							replace(/"/g,'&quot;')
