@@ -21,44 +21,44 @@ makeGrid()
 responsiveBold(scaleName)
 	.bold-{scaleName}
 		font-weight bold
-		
+
 responsiveColor(scaleName)
 	.color-{scaleName}
 		color: _colors.yellow
 		text-decoration underline
 
 responsiveBold("xs")
-	
+
 @media (min-width: gUnit(rolleiflex.breakpoints.sm.breakpoint))
 	responsiveBold("sm")
-	
+
 @media (min-width: gUnit(rolleiflex.breakpoints.md.breakpoint))
 	responsiveBold("md")
-	
+
 @media (min-width: gUnit(rolleiflex.breakpoints.lg.breakpoint))
 	responsiveBold("lg")
-	
+
 @media (min-width: gUnit(rolleiflex.breakpoints.xs.breakpoint)) and (max-width: gUnit(rolleiflex.breakpoints.sm.breakpoint))
 	responsiveColor("xs")
-	
+
 @media (min-width: gUnit(rolleiflex.breakpoints.sm.breakpoint)) and (max-width: gUnit(rolleiflex.breakpoints.md.breakpoint))
 	responsiveColor("sm")
-	
+
 @media (min-width: gUnit(rolleiflex.breakpoints.md.breakpoint)) and (max-width: gUnit(rolleiflex.breakpoints.lg.breakpoint))
 	responsiveColor("md")
-	
+
 @media (min-width: gUnit(rolleiflex.breakpoints.lg.breakpoint))
 	responsiveColor("lg")
-	
+
 html {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
 body {
-    margin: 0;
-    font: 16px/1 sans-serif;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
+	margin: 0;
+	font: 16px/1 sans-serif;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
 }
 h1,
 h2,
@@ -69,12 +69,12 @@ blockquote,
 figure,
 ol,
 ul {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 main,
 li {
-    display: block;
+	display: block;
 }
 h1,
 h2,
@@ -82,77 +82,77 @@ h3,
 h4,
 h5,
 h6 {
-    font-size: inherit;
+	font-size: inherit;
 }
 strong { font-weight: bold; }
 a,
 button {
-    color: inherit;
-    transition: .3s all ease;
+	color: inherit;
+	transition: .3s all ease;
 }
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 button {
-    overflow: visible;
-    border: 0;
-    font: inherit;
-    -webkit-font-smoothing: inherit;
-    letter-spacing: inherit;
-    background: none;
-    cursor: pointer;
+	overflow: visible;
+	border: 0;
+	font: inherit;
+	-webkit-font-smoothing: inherit;
+	letter-spacing: inherit;
+	background: none;
+	cursor: pointer;
 }
 ::-moz-focus-inner {
-    padding: 0;
-    border: 0;
+	padding: 0;
+	border: 0;
 }
 :focus {
-    outline: 0;
+	outline: 0;
 }
 img {
-    max-width: 100%;
-    height: auto;
-    border: 0;
+	max-width: 100%;
+	height: auto;
+	border: 0;
 }
-	
-* 
+
+*
 	box-sizing border-box
-	
+
 body
 	font-family Monospace, sans-serif
-	
+
 h1
 	font-size 48px
 	margin-bottom 10px
-	
+
 h2
 	font-size 32px
 	margin-bottom 10px
-	
+
 h3
 	margin-top 30px
 	font-size 22px
 	margin-bottom 10px
-	
+
 section
 	padding 30px 15px
-	
+
 	&.download
 	&.title
 		padding 80px 15px
-		
-	
+
+
 .section__header
 	margin-bottom 30px
 	line-height 1.4
-	
+
 for color, hex in _colors
 	.color--{color}
 		color hex
-		
+
 	.bg--{color}
 		background-color hex
-	
+
 .col-content
 	width 100%
 	min-height 80px
@@ -163,79 +163,79 @@ for color, hex in _colors
 	font-size 14px
 	display flex
 	flex-wrap wrap
-	word-break break-all	
+	word-break break-all
 
 	span
 		display block
 		width 100%
-		
+
 	&--noalign
 		text-align inherit
-		
+
 	&--small
 		min-height 40px
-		
+
 	&--big
 		min-height 160px
-		
+
 	&--center
 		text-align center
-		
+
 .row-wrapper
 	padding 15px
 	margin-bottom: gUnit(rolleiflex.spaces.gutter*2)
 	overflow hidden
 	.col-content
-		margin-bottom 0 
-		
+		margin-bottom 0
+
 	&__title
 		display block
 		margin-bottom 10px
-		
+
 [row='vertical']
 .row--dir-col
 .row--dir-reverse-col
 	height 400px
-			
+
 pre
 	color: _colors.black
 	background-color: _colors.white
 	border-left: 10px solid _colors.gray
 	padding 15px 10px
 	margin-bottom 15px
-	
+
 small
 	font-size 12px
-	
-.grid.nested		
+
+.grid.nested
 	.col-content
 		margin-bottom 0
-		
+
 .nested-col
 	padding 15px
-	
+
 .config__attr
 	background-color: _colors.white
 	padding 15px
 	line-height 1.2
-	
+
 	+ .config__attr
 		margin-top 15px
-		
+
 .config__attr-name
 	display inline-block
 	background-color: _colors.black
 	color: _colors.white
 	padding 5px 10px
 	margin-bottom 4px
-	
+
 .config__attr-default
 	display inline-block
 	background-color: _colors.purple
 	color: _colors.white
 	padding 5px 10px
 	margin-bottom 4px
-		
+
 .download-links
 	a
 		display inline-block
@@ -244,7 +244,7 @@ small
 		color: _colors.white
 		text-decoration none
 		font-size 18px
-		
+
 		&:hover
 			background-color: _colors.purple
-	
+

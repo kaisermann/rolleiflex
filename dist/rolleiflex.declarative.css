@@ -46,9 +46,9 @@
   box-sizing: border-box;
   padding-right: 8px;
   padding-left: 8px;
-  -webkit-flex: 0 0 100%;
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
+  -webkit-flex: 1 1 100%;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
 }
 [row='vertical'] {
   margin-left: initial;
@@ -1280,7 +1280,6 @@
     text-align: right;
   }
 }
-
 [row][fill] > [col] > * {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
