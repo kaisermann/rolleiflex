@@ -18,6 +18,11 @@ http://kaisermann.github.io/rolleiflex/
 * [Minified CSS](https://raw.githubusercontent.com/kaisermann/rolleiflex/master/dist/rolleiflex.min.css)
 * [Unminified CSS](https://raw.githubusercontent.com/kaisermann/rolleiflex/master/dist/rolleiflex.css)
 
+## Usage
+
+* Import desired '.css' file.
+* Call the **'buildRolleiflexGrid'** mixin on any of your .styl files.
+
 ## Inspiration
 
 * [flexboxgrid](https://github.com/kristoferjoseph/flexboxgrid)
