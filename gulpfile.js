@@ -8,7 +8,7 @@ var $ = require('gulp-load-plugins')();
 // Autoprefixer browser string
 var browserString = ['> 5%', 'last 2 versions', 'Safari >= 8'];
 
-var endFile = argv.endfile || "rolleiflex";
+var endFile = 'rolleiflex' + (argv.d ? '.declarative' : '');
 
 gulp.task('build', function () {
   var files = [

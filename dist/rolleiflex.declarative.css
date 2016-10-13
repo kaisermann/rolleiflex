@@ -56,7 +56,7 @@
   padding-left: 0;
   padding-right: 0;
 }
-[no-wrap-xs] {
+[no-wrap\@xs] {
   -webkit-flex-wrap: nowrap;
       -ms-flex-wrap: nowrap;
           flex-wrap: nowrap;
@@ -269,7 +269,7 @@
   .container {
     max-width: 740px;
   }
-  [no-wrap-sm] {
+  [no-wrap\@sm] {
     -webkit-flex-wrap: nowrap;
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
@@ -481,7 +481,7 @@
   .container {
     max-width: 960px;
   }
-  [no-wrap-md] {
+  [no-wrap\@md] {
     -webkit-flex-wrap: nowrap;
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
@@ -693,7 +693,7 @@
   .container {
     max-width: 1140px;
   }
-  [no-wrap-lg] {
+  [no-wrap\@lg] {
     -webkit-flex-wrap: nowrap;
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;

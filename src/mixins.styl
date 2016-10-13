@@ -24,7 +24,7 @@ r-makeBreakpointGrid(scaleName)
 	scaleName = unquote(scaleName)
 	isFirstBP = rolleiflex.breakpoints[scaleName].breakpoint == 0
 
-	+r-sel("[%sno-wrap-%s]" % (dp scaleName),".row--no-wrap%s%s" % (bd scaleName))
+	+r-sel("[%sno-wrap%s%s]" % (dp dd scaleName),".row--no-wrap%s%s" % (bd scaleName))
 		flex-wrap nowrap
 
 	+r-sel("[%s][%salign%s%s='start']" % (rowSelector dp dd scaleName),".row--start%s%s" % (bd scaleName))
