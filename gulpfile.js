@@ -8,7 +8,7 @@ var $ = require('gulp-load-plugins')();
 // Autoprefixer browser string
 var browserString = 'last 2 versions';
 
-var endFile = (argv.endfile) ? argv.endfile : "rolleiflex";
+var endFile = argv.endfile || "rolleiflex";
 
 gulp.task('build', function () {
   var files = [
