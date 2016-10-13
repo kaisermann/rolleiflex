@@ -6,7 +6,7 @@ var argv = require('yargs').argv;
 var $ = require('gulp-load-plugins')();
 
 // Autoprefixer browser string
-var browserString = 'last 2 versions';
+var browserString = ['> 5%', 'last 2 versions', 'Safari >= 8'];
 
 var endFile = argv.endfile || "rolleiflex";
 
@@ -23,6 +23,13 @@ gulp.task('build', function () {
       .pipe($.autoprefixer(browserString))
       .pipe($.stripCssComments())
       .pipe($.rename(e[2]))
+      .pipe($.size({
+        showFiles: true
+      }))
+      .pipe($.size({
+        gzip: true,
+        showFiles: true
+      }))
       .pipe(gulp.dest(e[1]));
   });
 
@@ -33,6 +40,13 @@ gulp.task('minify', ['build'], function () {
   return gulp.src(['./dist/' + endFile + '.css'])
     .pipe($.cssnano())
     .pipe($.rename(endFile + '.min.css'))
+    .pipe($.size({
+      showFiles: true
+    }))
+    .pipe($.size({
+      gzip: true,
+      showFiles: true
+    }))
     .pipe(gulp.dest('./dist/'));
 });
 

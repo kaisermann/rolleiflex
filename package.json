@@ -8,9 +8,9 @@
     "url": "git+https://github.com/kaisermann/rolleiflex.git"
   },
   "keywords": [
-	"grid",
-	"css",
-	"flexbox"
+    "grid",
+    "css",
+    "flexbox"
   ],
   "author": "Christian Kaisermann",
   "license": "ISC",
@@ -26,6 +26,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-rimraf": "^0.2.0",
+    "gulp-size": "^2.1.0",
     "gulp-strip-css-comments": "^1.2.0",
     "gulp-stylus": "^2.3.1",
     "merge-stream": "^1.0.0",
