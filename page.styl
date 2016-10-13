@@ -19,7 +19,7 @@ _colors = {
 buildRolleiflexGrid()
 
 responsiveBold(scaleName)
-	.bold-{scaleName}
+	.bold\\@{scaleName}
 		font-weight bold
 
 responsiveColor(scaleName)
@@ -29,25 +29,25 @@ responsiveColor(scaleName)
 
 responsiveBold("xs")
 
-@media (min-width: gUnit(rolleiflex.breakpoints.sm.breakpoint))
+@media (min-width: r-unit(rolleiflex.breakpoints.sm.breakpoint))
 	responsiveBold("sm")
 
-@media (min-width: gUnit(rolleiflex.breakpoints.md.breakpoint))
+@media (min-width: r-unit(rolleiflex.breakpoints.md.breakpoint))
 	responsiveBold("md")
 
-@media (min-width: gUnit(rolleiflex.breakpoints.lg.breakpoint))
+@media (min-width: r-unit(rolleiflex.breakpoints.lg.breakpoint))
 	responsiveBold("lg")
 
-@media (min-width: gUnit(rolleiflex.breakpoints.xs.breakpoint)) and (max-width: gUnit(rolleiflex.breakpoints.sm.breakpoint))
+@media (min-width: r-unit(rolleiflex.breakpoints.xs.breakpoint)) and (max-width: r-unit(rolleiflex.breakpoints.sm.breakpoint))
 	responsiveColor("xs")
 
-@media (min-width: gUnit(rolleiflex.breakpoints.sm.breakpoint)) and (max-width: gUnit(rolleiflex.breakpoints.md.breakpoint))
+@media (min-width: r-unit(rolleiflex.breakpoints.sm.breakpoint)) and (max-width: r-unit(rolleiflex.breakpoints.md.breakpoint))
 	responsiveColor("sm")
 
-@media (min-width: gUnit(rolleiflex.breakpoints.md.breakpoint)) and (max-width: gUnit(rolleiflex.breakpoints.lg.breakpoint))
+@media (min-width: r-unit(rolleiflex.breakpoints.md.breakpoint)) and (max-width: r-unit(rolleiflex.breakpoints.lg.breakpoint))
 	responsiveColor("md")
 
-@media (min-width: gUnit(rolleiflex.breakpoints.lg.breakpoint))
+@media (min-width: r-unit(rolleiflex.breakpoints.lg.breakpoint))
 	responsiveColor("lg")
 
 html {
@@ -156,7 +156,7 @@ for color, hex in _colors
 .col-content
 	width 100%
 	min-height 80px
-	margin-bottom: gUnit(rolleiflex.spaces.gutter)
+	margin-bottom: r-unit(rolleiflex.spaces.gutter)
 	padding 5px
 	align-items center
 	justify-content center
@@ -183,7 +183,7 @@ for color, hex in _colors
 
 .row-wrapper
 	padding 15px
-	margin-bottom: gUnit(rolleiflex.spaces.gutter*2)
+	margin-bottom: r-unit(rolleiflex.spaces.gutter*2)
 	overflow hidden
 	.col-content
 		margin-bottom 0
@@ -247,4 +247,3 @@ small
 
 		&:hover
 			background-color: _colors.purple
-
