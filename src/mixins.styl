@@ -1,206 +1,183 @@
-dp = rolleiflex.declarativePrefix
-declarative = rolleiflex.build.declarative
+dp = unquote(rolleiflex.declarativePrefix)
+dd = unquote(rolleiflex.declarativeScaleDivisor)
+bd = unquote(rolleiflex.classScaleDivisor)
 
-rowSelector = dp+"row"
-colSelector = dp+"col"
+isDeclarative = rolleiflex.build.declarative
 
-gUnit(p)
+rowSelector = "%srow" % dp
+colSelector = "%scol" % dp
+
+r-unit(p)
 	if(rolleiflex.use.em)
 		return unit(p / rolleiflex.baseFontSize, "em")
 	return unit(p,"px")
 
---chooseSelector(s1,s2)
-	if(rolleiflex.build.declarative)
+r-sel(s1,s2)
+	if(isDeclarative)
 		{s1}
 			{block}
 	else
 		{s2}
 			{block}
 
---makeBreakpointGrid(scaleName)
-
+r-makeBreakpointGrid(scaleName)
+	scaleName = unquote(scaleName)
 	isFirstBP = rolleiflex.breakpoints[scaleName].breakpoint == 0
 
-	+--chooseSelector("["+dp+"no-wrap-"+scaleName+"]",".row--"+scaleName+"-no-wrap")
+	+r-sel("[%sno-wrap-%s]" % (dp scaleName),".row--no-wrap%s%s" % (bd scaleName))
 		flex-wrap nowrap
 
-	+--chooseSelector("["+rowSelector+"]["+dp+"align-"+scaleName+"='start']",".row--"+scaleName+"-start")
+	+r-sel("[%s][%salign%s%s='start']" % (rowSelector dp dd scaleName),".row--start%s%s" % (bd scaleName))
 		justify-content flex-start
 
-	+--chooseSelector("["+rowSelector+"]["+dp+"align-"+scaleName+"='center']",".row--"+scaleName+"-center")
+	+r-sel("[%s][%salign%s%s='center']" % (rowSelector dp dd scaleName),".row--center%s%s" % (bd scaleName))
 		justify-content center
 
-	+--chooseSelector("["+rowSelector+"]["+dp+"align-"+scaleName+"='end']",".row--"+scaleName+"-end")
+	+r-sel("[%s][%salign%s%s='end']" % (rowSelector dp dd scaleName),".row--end%s%s" % (bd scaleName))
 		justify-content flex-end
 
-	+--chooseSelector("["+dp+"position-"+scaleName+"='top']",".row--"+scaleName+"-top")
+	+r-sel("[%sposition%s%s='top']" % (dp dd scaleName),".row--top%s%s" % (bd scaleName))
 		align-items flex-start
 
-	+--chooseSelector("["+dp+"position-"+scaleName+"='bottom']",".row--"+scaleName+"-bottom")
+	+r-sel("[%sposition%s%s='bottom']" % (dp dd scaleName),".row--bottom%s%s" % (bd scaleName))
 		align-items flex-end
 
-	+--chooseSelector("["+dp+"position-"+scaleName+"='middle']",".row--"+scaleName+"-middle")
+	+r-sel("[%sposition%s%s='middle']" % (dp dd scaleName),".row--middle%s%s" % (bd scaleName))
 		align-items center
 
-	+--chooseSelector("["+dp+"space-"+scaleName+"='around']",".row--"+scaleName+"-around")
+	+r-sel("[%sspace%s%s='around']" % (dp dd scaleName),".row--around%s%s" % (bd scaleName))
 		justify-content space-around
 
-	+--chooseSelector("["+dp+"space-"+scaleName+"='between']",".row--"+scaleName+"-between")
+	+r-sel("[%sspace%s%s='between']" % (dp dd scaleName),".row--between%s%s" % (bd scaleName))
 		justify-content space-between
-
-	if(declarative)
-		sel = "["+dp+"size-"+scaleName+"]"
-
-		if(isFirstBP)
-			sel = "["+dp+"size]," + sel
-	else
-		sel = ".col--"+scaleName
-
-		if(isFirstBP)
-			sel = ".col, " + sel
-
-	{sel}
-		flex 1 1 0
+		
+	+r-sel("[%ssize%s%s]" % (dp dd scaleName),".col%s%s" % (bd scaleName))
+		flex 1 1 auto
 		max-width 100%
 
 	for col in (1..rolleiflex.columns)
 		percentageWidth = round(percentage(col/rolleiflex.columns),6)
-		if(declarative)
-			sel = "["+dp+"size-"+scaleName+"='"+col+"']"
 
-			if(isFirstBP)
-				sel = "["+dp+"size='"+col+"']," + sel
-		else
-			sel = ".col--"+scaleName+"-"+col
-
-			if(isFirstBP)
-				sel = ".col--"+col+", " + sel
-
-		{sel}
-			flex-basis: percentageWidth
+		+r-sel("[%ssize%s%s='%d']" % (dp dd scaleName col), ".col--%d%s%s" % (col bd scaleName))
+			//flex-basis: percentageWidth
 			max-width: percentageWidth
 
-		+--chooseSelector("["+rowSelector+"='vertical'] ",".row--dir-col")
-			{sel}
-				max-height percentageWidth
-				max-width initial
+		if(rolleiflex.build.verticalGrid)
+			+r-sel("[%s='vertical']" % rowSelector,".row--dir-col")
+				+r-sel("[%ssize%s%s='%d']" % (dp dd scaleName col), ".col--%d%s%s" % (col bd scaleName))
+					max-height percentageWidth
+					max-width initial
 
 	/* Columns Offset helpers */
 	for col in (0..(rolleiflex.columns - 1))
 		percentageWidth = round(percentage(col/rolleiflex.columns),6)
 
-		+--chooseSelector("["+dp+"offset-"+scaleName+"='"+col+"']",".col--"+scaleName+"-offset-"+col)
+		+r-sel("[%soffset%s%s='%d']" % (dp dd scaleName col),".col--offset-%d%s%s" % (col bd scaleName))
 			margin-left: percentageWidth
 
-		+--chooseSelector("["+rowSelector+"='vertical'] ["+dp+"offset-"+scaleName+"='"+col+"']",".row--dir-col .col--"+scaleName+"-offset-"+col)
-			margin-left initial
-			margin-top: percentageWidth
+		if(rolleiflex.build.verticalGrid)
+			+r-sel("[%s='vertical'] [%soffset%s%s='%s']" % (rowSelector dp dd scaleName col),".row--dir-col .col--offset-%s%s%s" % (col bd scaleName))
+				margin-left initial
+				margin-top: percentageWidth
 
-	+--chooseSelector("["+dp+"order-"+scaleName+"='first']",".col--"+scaleName+"-first")
+	+r-sel("[%sorder%s%s='first']" % (dp dd scaleName),".col--first%s%s" % (bd scaleName))
 		order -1
 
-	+--chooseSelector("["+dp+"order-"+scaleName+"='last']",".col--"+scaleName+"-last")
+	+r-sel("[%sorder%s%s='last']" % (dp dd scaleName),".col--last%s%s" % (bd scaleName))
 		order 1
 
-	+--chooseSelector("["+colSelector+"]["+dp+"align-"+scaleName+"='start']",".col--"+scaleName+"-start")
+	+r-sel("[%s][%salign%s%s='start']" % (colSelector dp dd scaleName),".col--start%s%s" % (bd scaleName))
 		align-self flex-start
 
-	+--chooseSelector("["+colSelector+"]["+dp+"align-"+scaleName+"='middle']",".col--"+scaleName+"-middle")
+	+r-sel("[%s][%salign%s%s='middle']" % (colSelector dp dd scaleName),".col--middle%s%s" % (bd scaleName))
 		align-self center
 
-	+--chooseSelector("["+colSelector+"]["+dp+"align-"+scaleName+"='end']",".col--"+scaleName+"-end")
+	+r-sel("[%s][%salign%s%s='end']" % (colSelector dp dd scaleName),".col--end%s%s" % (bd scaleName))
 		align-self flex-end
 
-
 	/* Text alignment helpers */
-	for alignment in (left center right)
-		.txt--{scaleName}-{alignment}
-			text-align: alignment
+	if(rolleiflex.build.responsiveText)
+		for alignment in (left center right justify)
+			+r-sel("[%stext-align%s%s='%s']" % (dp dd scaleName alignment),".text--%s%s%s" % (alignment bd scaleName))
+				text-align: alignment
 
 buildRolleiflexGrid()
 	if(rolleiflex.build.container)
-		.container
+		+r-sel("[%scontainer]" % dp, ".container")
 			width 100%
 			margin-right auto
 			margin-left auto
 
-		.container--padded
-			padding-right: gUnit(rolleiflex.spaces.padding)
-			padding-left: gUnit(rolleiflex.spaces.padding)
+	+r-sel("[%scontainer='padded']" % dp,".container--padded")
+			padding-right: r-unit(rolleiflex.spaces.padding)
+			padding-left: r-unit(rolleiflex.spaces.padding)
 
-	+--chooseSelector("["+rowSelector+"]",".row")
+	+r-sel("[%s]" % rowSelector,".row")
 		if(rolleiflex.autoBorderBox)
 			box-sizing border-box
 		display flex
-		flex 1 1 auto
+		flex 1 1 100%
 		flex-flow row wrap
-		margin-right: -(gUnit(rolleiflex.spaces.gutter / 2))
-		margin-left: -(gUnit(rolleiflex.spaces.gutter / 2))
+		margin-right: -(r-unit(rolleiflex.spaces.gutter / 2))
+		margin-left: -(r-unit(rolleiflex.spaces.gutter / 2))
 
-	+--chooseSelector("["+rowSelector+"='vertical']",".row--dir-col")
+	+r-sel("[%s]" % colSelector,"[class^='col%s'],[class^='col--']" % bd)
+		display flex
 		flex-direction column
+		padding-right: r-unit(rolleiflex.spaces.gutter / 2)
+		padding-left: r-unit(rolleiflex.spaces.gutter / 2)
+		flex 1 1 100%
+		if(rolleiflex.autoBorderBox)
+			box-sizing border-box
+	
+	if(rolleiflex.build.verticalGrid)
+		+r-sel("[%s='vertical']" % rowSelector,".row--dir-col")
+			margin-left initial
+			margin-right initial
+			margin-top: -(r-unit(rolleiflex.spaces.gutter / 2))
+			margin-bottom: -(r-unit(rolleiflex.spaces.gutter / 2))
+			flex-direction column
 
-	+--chooseSelector("["+rowSelector+"]["+dp+"reverse]",".row.row--reverse")
+			>
+				+r-sel("[%s]" % colSelector,"[class^='col%s']" % bd)
+					padding-left initial
+					padding-right initial
+					padding-top: r-unit(rolleiflex.spaces.gutter / 2)
+					padding-bottom: r-unit(rolleiflex.spaces.gutter / 2)
+
+	+r-sel("[%s][%sreverse]" % (rowSelector dp),".row.row--reverse")
 		flex-direction row-reverse
 
-	+--chooseSelector("["+rowSelector+"='vertical']["+dp+"reverse]",".row--dir-col.row--reverse")
-		flex-direction column-reverse
+	if(rolleiflex.build.verticalGrid)
+		+r-sel("[%s='vertical'][%sreverse]" % (rowSelector dp),".row--dir-col.row--reverse")
+			flex-direction column-reverse
 
-	+--chooseSelector("["+colSelector+"]","[class^=col--]")
-		display flex
-		flex-direction column
-		if(rolleiflex.autoBorderBox)
-			box-sizing border-box
-
-		padding-right: gUnit(rolleiflex.spaces.gutter / 2)
-		padding-left: gUnit(rolleiflex.spaces.gutter / 2)
-		//max-width 100%
-		flex 1 1 100%
-
-	+--chooseSelector("["+rowSelector+"='vertical']",".row--dir-col")
-		margin-left initial
-		margin-right initial
-		margin-top: -(gUnit(rolleiflex.spaces.gutter / 2))
-		margin-bottom: -(gUnit(rolleiflex.spaces.gutter / 2))
-
-		>
-			+--chooseSelector("["+colSelector+"]","[class^=col--]")
-				padding-left initial
-				padding-right initial
-				padding-top: gUnit(rolleiflex.spaces.gutter / 2)
-				padding-bottom: gUnit(rolleiflex.spaces.gutter / 2)
-
-
-	+--chooseSelector("["+rowSelector+"][no-gutter]",".row--no-gutter")
+	+r-sel("[%s][no-gutter]" % rowSelector,".row--no-gutter")
 		margin-left 0
 		margin-right 0
 
-	+--chooseSelector("["+colSelector+"][no-gutter]",".col--no-gutter")
+	+r-sel("[%s][no-gutter]" % colSelector,".col--no-gutter")
 		padding-left 0
 		padding-right 0
 
 	for scaleName, scaleOptions in rolleiflex.breakpoints
 		if(scaleOptions.breakpoint == 0)
-			--makeBreakpointGrid(scaleName)
+			r-makeBreakpointGrid(scaleName)
 		else
-			@media (min-width: gUnit(scaleOptions.breakpoint))
+			@media (min-width: r-unit(scaleOptions.breakpoint))
 
 				if(rolleiflex.build.container)
 					.container
-						max-width: gUnit(scaleOptions.container)
+						max-width: r-unit(scaleOptions.container)
 
-				--makeBreakpointGrid(scaleName)
+				r-makeBreakpointGrid(scaleName)
 
-	+--chooseSelector("[row]["+dp+"fill]",".row--fill")
-		sel = ""
-		if(declarative)
-			sel = "> ["+colSelector+"]"
-		else
-			sel = "> [class^='col--']"
-		{sel}
-			> *
-				flex-grow 1
+	+r-sel("[%s][%sfill]" % (rowSelector dp),".row--fill")
+		>
+			+r-sel("[%s]" % colSelector, "[class^='col%s']" % bd)
+				> *
+					flex-grow 1
 
-	+--chooseSelector("[col]["+dp+"fill]",".col--fill")
+	+r-sel("[%s][%sfill]" % (colSelector dp),".col--fill")
 		> *
 			flex-grow 1

@@ -5,15 +5,18 @@ rolleiflex = {
 
 	// Use
 	"use": {
-		"em": 					false,		// Use the em unit instead of px (true or false)
+		"em": 					false,		// Use the em unit instead of px (true or false),
 	},
 	// Builds
 	"build": {
-		"container": 			true,		// Should build the .container CSS?
-		"responsiveText": 		true, 		// Should build the .txt-breakpoint-position CSS?
-		"declarative": 			true 		// Should build the grid with its declarative syntax?
+		"container": 			  true,	    // Should build the .container CSS?
+		"responsiveText": 	true,   	// Should build the .txt-breakpoint-position CSS?
+		"declarative": 			false, 		// Should build the grid with its declarative syntax?
+    "verticalGrid":     true     // Should build css for vertical grids?
 	},
-	"declarativePrefix": 		""		 	// Declarative syntax prefix (string), for build.declarative = true
+	"declarativePrefix": 		"",		 	// Declarative syntax prefix (string), for build.declarative = true
+	"declarativeScaleDivisor": "\@",
+	"classScaleDivisor": "\@",
 
 	// Columns
 	"columns": 					12,			// Number of columns in the grid
