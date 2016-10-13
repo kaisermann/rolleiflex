@@ -59,7 +59,7 @@ r-makeBreakpointGrid(scaleName)
 		percentageWidth = round(percentage(col/rolleiflex.columns),6)
 
 		+r-sel("[%ssize%s%s='%d']" % (dp dd scaleName col), ".col--%d%s%s" % (col bd scaleName))
-			//flex-basis: percentageWidth
+			flex-basis: percentageWidth
 			max-width: percentageWidth
 
 		if(rolleiflex.build.verticalGrid)
