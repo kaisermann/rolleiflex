@@ -266,7 +266,7 @@
   text-align: justify;
 }
 @media (min-width: 767px) {
-  .container {
+  [container] {
     max-width: 740px;
   }
   [no-wrap\@sm] {
@@ -478,7 +478,7 @@
   }
 }
 @media (min-width: 991px) {
-  .container {
+  [container] {
     max-width: 960px;
   }
   [no-wrap\@md] {
@@ -690,7 +690,7 @@
   }
 }
 @media (min-width: 1200px) {
-  .container {
+  [container] {
     max-width: 1140px;
   }
   [no-wrap\@lg] {

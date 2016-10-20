@@ -50,7 +50,7 @@ r-makeBreakpointGrid(scaleName)
 
 	+r-sel("[%sspace%s%s='between']" % (dp dd scaleName),".row--between%s%s" % (bd scaleName))
 		justify-content space-between
-		
+
 	+r-sel("[%ssize%s%s]" % (dp dd scaleName),".col%s%s" % (bd scaleName))
 		flex 1 1 auto
 		max-width 100%
@@ -129,7 +129,7 @@ buildRolleiflexGrid()
 		flex 1 1 100%
 		if(rolleiflex.autoBorderBox)
 			box-sizing border-box
-	
+
 	if(rolleiflex.build.verticalGrid)
 		+r-sel("[%s='vertical']" % rowSelector,".row--dir-col")
 			margin-left initial
@@ -167,7 +167,7 @@ buildRolleiflexGrid()
 			@media (min-width: r-unit(scaleOptions.breakpoint))
 
 				if(rolleiflex.build.container)
-					.container
+					+r-sel("[%scontainer]" % dp, ".container")
 						max-width: r-unit(scaleOptions.container)
 
 				r-makeBreakpointGrid(scaleName)
