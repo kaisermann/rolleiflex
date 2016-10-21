@@ -5,6 +5,9 @@
   padding-right: 8px;
   padding-left: 8px;
 }
+[container='full'] {
+  width: 100% !important;
+}
 [row] {
   display: -webkit-box;
   display: -webkit-flex;
@@ -897,9 +900,6 @@
   [text-align\@lg='justify'] {
     text-align: justify;
   }
-}
-[container='full'] {
-  width: 100%;
 }
 [row][fill] > [col] > * {
   -webkit-box-flex: 1;

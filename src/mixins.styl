@@ -110,6 +110,9 @@ buildRolleiflexGrid()
 			padding-right: r-unit(rolleiflex.spaces.containerPadding)
 			padding-left: r-unit(rolleiflex.spaces.containerPadding)
 
+		+r-sel("[%scontainer='full']" % dp,".container--full")
+				width 100% !important
+
 	+r-sel("[%s]" % rowSelector,".row")
 		if(rolleiflex.autoBorderBox)
 			box-sizing border-box
@@ -170,9 +173,6 @@ buildRolleiflexGrid()
 						width: r-unit(scaleOptions.container)
 
 				r-makeBreakpointGrid(scaleName)
-
-	+r-sel("[%scontainer='full']" % dp,".container-full")
-			width 100%
 
 	+r-sel("[%s][%sfill]" % (rowSelector dp),".row--fill")
 		>
