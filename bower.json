@@ -1,22 +1,20 @@
 {
-  "name": "rolleiflex",
-  "description": "CSS Flexbox Grid",
-  "main": "dist/rolleiflex.declarative.css",
-  "authors": [
+	"name": "rolleiflex",
+	"description": "CSS Flexbox Grid",
+	"main": "dist/rolleiflex.css",
+	"authors": [
     "Christian Kaisermann"
   ],
-  "license": "ISC",
-  "keywords": [
+	"license": "ISC",
+	"keywords": [
     "grid",
     "css",
     "flexbox"
   ],
-  "homepage": "http://kaisermann.github.io/rolleiflex",
-  "ignore": [
+	"homepage": "http://kaisermann.github.io/rolleiflex",
+	"ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ]
 }
