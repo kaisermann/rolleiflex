@@ -1,35 +1,35 @@
 {
-  "name": "rolleiflex",
-  "version": "0.3.2",
-  "description": "",
-  "main": "src/wrapper.styl",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kaisermann/rolleiflex.git"
-  },
-  "keywords": [
+	"name": "rolleiflex",
+	"version": "0.3.3",
+	"description": "",
+	"main": "src/wrapper.styl",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kaisermann/rolleiflex.git"
+	},
+	"keywords": [
     "grid",
     "css",
     "flexbox"
   ],
-  "author": "Christian Kaisermann",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kaisermann/rolleiflex/issues"
-  },
-  "homepage": "http://kaisermann.github.io/rolleiflex/",
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-load-plugins": "^1.2.2",
-    "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-rimraf": "^0.2.0",
-    "gulp-size": "^2.1.0",
-    "gulp-strip-css-comments": "^1.2.0",
-    "gulp-stylus": "^2.3.1",
-    "merge-stream": "^1.0.0",
-    "yargs": "^4.7.0"
-  }
+	"author": "Christian Kaisermann",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/kaisermann/rolleiflex/issues"
+	},
+	"homepage": "http://kaisermann.github.io/rolleiflex/",
+	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-autoprefixer": "^3.1.0",
+		"gulp-cssnano": "^2.1.2",
+		"gulp-load-plugins": "^1.2.2",
+		"gulp-plumber": "^1.1.0",
+		"gulp-rename": "^1.2.2",
+		"gulp-rimraf": "^0.2.0",
+		"gulp-size": "^2.1.0",
+		"gulp-strip-css-comments": "^1.2.0",
+		"gulp-stylus": "^2.3.1",
+		"merge-stream": "^1.0.0",
+		"yargs": "^4.7.0"
+	}
 }
