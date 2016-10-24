@@ -1,4 +1,5 @@
 bd = unquote(rolleiflex.classScaleDivisor)
+rf = unquote(rolleiflex.classPrefix)
 
 r-unit(p)
 	if(rolleiflex.use.em)
@@ -9,141 +10,153 @@ r-makeBreakpointGrid(scaleName)
 	scaleName = unquote(scaleName)
 	isFirstBP = rolleiflex.breakpoints[scaleName].breakpoint == 0
 
-	/* Text alignment helpers */
-	if(rolleiflex.build.responsiveText)
-		for alignment in (left center right justify)
-			.h-text-{alignment}{bd}{scaleName}
-				text-align: alignment
-
-	.row
-		&.-no-wrap{bd}{scaleName}
-			flex-wrap nowrap
-
-		&.-align-start{bd}{scaleName}
-			justify-content flex-start
-
-		&.-align-center{bd}{scaleName}
-			justify-content center
-
-		&.-align-end{bd}{scaleName}
-			justify-content flex-end
-
-		&.-position-top{bd}{scaleName}
-			align-items flex-start
-
-		&.-position-bottom{bd}{scaleName}
-			align-items flex-end
-
-		&.-position-middle{bd}{scaleName}
-			align-items center
-
-		&.-space-around{bd}{scaleName}
-			justify-content space-around
-
-		&.-space-between{bd}{scaleName}
-			justify-content space-between
-
-		&.-no-gutter{bd}{scaleName}
+	// For rows only
+	.{rf}row
+		&.-{rf}no-gutter{bd}{scaleName}
 			margin-left 0
 			margin-right 0
 
-			> .col
+			> .{rf}col
 				padding-left 0
 				padding-right 0
 
-	.col
-		&.-size{bd}{scaleName}
+	// For columns only
+	.{rf}col
+		&.-{rf}size{bd}{scaleName}
 			flex 1 1 auto
-
-		&.-first{bd}{scaleName}
-			order -1
-
-		&.-last{bd}{scaleName}
-			order 1
-
-		&.-position-start{bd}{scaleName}
-			align-self flex-start
-
-		&.-position-middle{bd}{scaleName}
-			align-self center
-
-		&.-position-end{bd}{scaleName}
-			align-self flex-end
 
 		for col in (1..rolleiflex.columns)
 			percentageWidth = round(percentage(col/rolleiflex.columns),6)
 			offsetWidth = round(percentage((col - 1)/rolleiflex.columns),6)
 
-			&.-size-{col}{bd}{scaleName}
+			&.-{rf}size-{col}{bd}{scaleName}
 				flex-basis: percentageWidth
 				max-width: percentageWidth
 
-			&.-offset-{col - 1}{bd}{scaleName}
+			&.-{rf}offset-{col - 1}{bd}{scaleName}
 				margin-left: offsetWidth
 
 			if(rolleiflex.build.verticalGrid)
-				.row.-vertical &
-					&.-size-{col}{bd}{scaleName}
+				.{rf}row.-{rf}vertical &
+					&.-{rf}size-{col}{bd}{scaleName}
 						max-height percentageWidth
 						max-width initial
 
-					&.-offset-{col - 1}{bd}{scaleName}
+					&.-{rf}offset-{col - 1}{bd}{scaleName}
 						margin-left initial
 						margin-top: offsetWidth
 
+	// Generic
+	.-{rf}justify-start{bd}{scaleName}
+		justify-content flex-start
+
+	.-{rf}justify-center{bd}{scaleName}
+		justify-content center
+
+	.-{rf}justify-end{bd}{scaleName}
+		justify-content flex-end
+
+	.-{rf}justify-around{bd}{scaleName}
+		justify-content space-around
+
+	.-{rf}justify-between{bd}{scaleName}
+		justify-content space-between
+
+	.-{rf}align-start{bd}{scaleName}
+		align-items flex-start
+
+	.-{rf}align-center{bd}{scaleName}
+		align-items center
+
+	.-{rf}align-end{bd}{scaleName}
+		align-items flex-end
+
+	.-{rf}self-start{bd}{scaleName}
+		align-self flex-start
+
+	.-{rf}self-center{bd}{scaleName}
+		align-self center
+
+	.-{rf}self-end{bd}{scaleName}
+		align-self flex-end
+		
+	.-{rf}no-wrap{bd}{scaleName}
+		flex-wrap nowrap
+		
+	.-{rf}at-first{bd}{scaleName}
+		order -1
+
+	.-{rf}at-last{bd}{scaleName}
+		order 1
+			
+	.-{rf}grow-none{bd}{scaleName}
+		flex-grow 0
+			
+	.-{rf}shrink-none{bd}{scaleName}
+		flex-shrink 0
+			
+	.-{rf}grow-double{bd}{scaleName}
+		flex-grow 2
+			
+	.-{rf}shrink-double{bd}{scaleName}
+		flex-shrink 2
+
+	// Text alignment helpers
+	if(rolleiflex.build.responsiveText)
+		for alignment in (left center right justify)
+			.h-text-{alignment}{bd}{scaleName}
+				text-align: alignment
+				
 buildRolleiflexGrid()
 	if(rolleiflex.build.container)
-		.container
-		.container-fluid
+		.{rf}container
+		.{rf}container-fluid
 			max-width 100%
 			margin-right auto
 			margin-left auto
 			padding-right: r-unit(rolleiflex.spaces.containerPadding)
 			padding-left: r-unit(rolleiflex.spaces.containerPadding)
+			if(rolleiflex.autoBorderBox)
+				box-sizing border-box
 
-	.row
-	.col
+	.{rf}row
+	.{rf}col
 		display flex
 		if(rolleiflex.autoBorderBox)
 			box-sizing border-box
 			
-	.col
+	.{rf}col
 		flex-flow column nowrap
 		padding-right: r-unit(rolleiflex.spaces.gutter / 2)
 		padding-left: r-unit(rolleiflex.spaces.gutter / 2)
 		flex 1 1 100%
 		max-width 100%
 
-	.row
+	.{rf}row
 		flex 1 1
 		flex-flow row wrap
 		margin-right: -(r-unit(rolleiflex.spaces.gutter / 2))
 		margin-left: -(r-unit(rolleiflex.spaces.gutter / 2))
 
-		&.-reverse
+		&.-{rf}reverse
 			flex-direction row-reverse
 
 		if(rolleiflex.build.verticalGrid)
-			&.-vertical
+			&.-{rf}vertical
 				margin-left initial
 				margin-right initial
 				margin-top: -(r-unit(rolleiflex.spaces.gutter / 2))
 				margin-bottom: -(r-unit(rolleiflex.spaces.gutter / 2))
 				flex-direction column
 
-				> .col
+				> .{rf}col
 						padding-left initial
 						padding-right initial
 						padding-top: r-unit(rolleiflex.spaces.gutter / 2)
 						padding-bottom: r-unit(rolleiflex.spaces.gutter / 2)
 
-				&.-reverse
+				&.-{rf}reverse
 					flex-direction column-reverse
-
-
-		.row.-fill > .col > *
-		.col.-fill > *
-			flex-grow 1
 
 	for scaleName, scaleOptions in rolleiflex.breakpoints
 		
@@ -155,7 +168,12 @@ buildRolleiflexGrid()
 			@media (min-width: r-unit(scaleOptions.breakpoint))
 
 				if(rolleiflex.build.container)
-					.container
+					.{rf}container
 						width: r-unit(scaleOptions.container)
 
 				r-makeBreakpointGrid(scaleName)
+				
+	// Generic as f*ck
+	.{rf}row.-{rf}fill > .{rf}col > *
+	.{rf}col.-{rf}fill > *
+		flex-grow 1
