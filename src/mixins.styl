@@ -10,7 +10,7 @@ r-makeBreakpointGrid(scaleName)
 	scaleName = unquote(scaleName)
 	isFirstBP = rolleiflex.breakpoints[scaleName].breakpoint == 0
 
-	// For rows only
+	// For rows
 	.{rf}row
 		&.-{rf}no-gutter{bd}{scaleName}
 			margin-left 0
@@ -20,33 +20,33 @@ r-makeBreakpointGrid(scaleName)
 				padding-left 0
 				padding-right 0
 
-	// For columns only
-	.{rf}col
-		&.-{rf}size{bd}{scaleName}
-			flex 1 1 auto
+	// For columns
+	.-{rf}size{bd}{scaleName}
+		flex 1 1 auto
+		
+	for col in (1..rolleiflex.columns)
+		percentageWidth = round(percentage(col/rolleiflex.columns),6)
+		offsetWidth = round(percentage((col - 1)/rolleiflex.columns),6)
 
-		for col in (1..rolleiflex.columns)
-			percentageWidth = round(percentage(col/rolleiflex.columns),6)
-			offsetWidth = round(percentage((col - 1)/rolleiflex.columns),6)
+		&.-{rf}size-{col}{bd}{scaleName}
+			flex-basis: percentageWidth
+			max-width: percentageWidth
 
-			&.-{rf}size-{col}{bd}{scaleName}
-				flex-basis: percentageWidth
-				max-width: percentageWidth
+		&.-{rf}offset-{col - 1}{bd}{scaleName}
+			margin-left: offsetWidth
 
-			&.-{rf}offset-{col - 1}{bd}{scaleName}
-				margin-left: offsetWidth
+		if(rolleiflex.build.verticalGrid)
+			.{rf}row.-{rf}vertical &
+				.-{rf}size-{col}{bd}{scaleName}
+					max-height percentageWidth
+					max-width initial
 
-			if(rolleiflex.build.verticalGrid)
-				.{rf}row.-{rf}vertical &
-					&.-{rf}size-{col}{bd}{scaleName}
-						max-height percentageWidth
-						max-width initial
-
-					&.-{rf}offset-{col - 1}{bd}{scaleName}
-						margin-left initial
-						margin-top: offsetWidth
+				.-{rf}offset-{col - 1}{bd}{scaleName}
+					margin-left initial
+					margin-top: offsetWidth
 
 	// Generic
+		
 	.-{rf}justify-start{bd}{scaleName}
 		justify-content flex-start
 
@@ -94,6 +94,12 @@ r-makeBreakpointGrid(scaleName)
 			
 	.-{rf}shrink-none{bd}{scaleName}
 		flex-shrink 0
+			
+	.-{rf}grow-single{bd}{scaleName}
+		flex-grow 1
+			
+	.-{rf}shrink-single{bd}{scaleName}
+		flex-shrink 1
 			
 	.-{rf}grow-double{bd}{scaleName}
 		flex-grow 2
