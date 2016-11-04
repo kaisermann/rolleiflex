@@ -3,24 +3,28 @@
   max-width: 100%;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-right: 12px;
+  padding-left: 12px;
   box-sizing: border-box;
 }
+.h-display-flex,
 .row,
 .col {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+.row,
+.col {
   box-sizing: border-box;
 }
 .col {
   -webkit-flex-flow: column nowrap;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
-  padding-right: 8px;
-  padding-left: 8px;
+  padding-right: 12px;
+  padding-left: 12px;
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 100%;
       -ms-flex: 1 1 100%;
@@ -35,8 +39,8 @@
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  margin-right: -8px;
-  margin-left: -8px;
+  margin-right: -12px;
+  margin-left: -12px;
 }
 .row.-reverse {
   -webkit-box-orient: horizontal;
