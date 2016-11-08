@@ -52,6 +52,14 @@
   padding-left: 0;
   padding-right: 0;
 }
+.row.-with-gutter\@xs {
+  margin-left: -12px;
+  margin-right: -12px;
+}
+.row.-with-gutter\@xs > .col {
+  padding-left: 12px;
+  padding-right: 12px;
+}
 .-size\@xs {
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 auto;
@@ -234,6 +242,11 @@
       -ms-flex-wrap: nowrap;
           flex-wrap: nowrap;
 }
+.-with-wrap\@xs {
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
 .-at-first\@xs {
   -webkit-box-ordinal-group: 0;
   -webkit-order: -1;
@@ -302,6 +315,14 @@
   .row.-no-gutter\@sm > .col {
     padding-left: 0;
     padding-right: 0;
+  }
+  .row.-with-gutter\@sm {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+  .row.-with-gutter\@sm > .col {
+    padding-left: 12px;
+    padding-right: 12px;
   }
   .-size\@sm {
     -webkit-box-flex: 1;
@@ -485,6 +506,11 @@
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
   }
+  .-with-wrap\@sm {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
   .-at-first\@sm {
     -webkit-box-ordinal-group: 0;
     -webkit-order: -1;
@@ -554,6 +580,14 @@
   .row.-no-gutter\@md > .col {
     padding-left: 0;
     padding-right: 0;
+  }
+  .row.-with-gutter\@md {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+  .row.-with-gutter\@md > .col {
+    padding-left: 12px;
+    padding-right: 12px;
   }
   .-size\@md {
     -webkit-box-flex: 1;
@@ -737,6 +771,11 @@
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
   }
+  .-with-wrap\@md {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
   .-at-first\@md {
     -webkit-box-ordinal-group: 0;
     -webkit-order: -1;
@@ -806,6 +845,14 @@
   .row.-no-gutter\@lg > .col {
     padding-left: 0;
     padding-right: 0;
+  }
+  .row.-with-gutter\@lg {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+  .row.-with-gutter\@lg > .col {
+    padding-left: 12px;
+    padding-right: 12px;
   }
   .-size\@lg {
     -webkit-box-flex: 1;
@@ -988,6 +1035,11 @@
     -webkit-flex-wrap: nowrap;
         -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
+  }
+  .-with-wrap\@lg {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
   }
   .-at-first\@lg {
     -webkit-box-ordinal-group: 0;

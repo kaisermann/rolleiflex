@@ -1,5 +1,6 @@
 bd = unquote(rolleiflex.classScaleDivisor)
 rf = unquote(rolleiflex.classPrefix)
+__rfColGutter = r-unit(rolleiflex.spaces.gutter / 2);
 
 r-unit(p)
 	if(rolleiflex.use.em)
@@ -19,6 +20,14 @@ r-makeBreakpointGrid(scaleName)
 			> .{rf}col
 				padding-left: 0;
 				padding-right: 0;
+				
+		&.-{rf}with-gutter{bd}{scaleName}
+			margin-left: -(__rfColGutter);
+			margin-right: -(__rfColGutter);
+
+			> .{rf}col
+				padding-left: __rfColGutter;
+				padding-right: __rfColGutter;
 
 	// For columns
 	.-{rf}size{bd}{scaleName}
@@ -83,6 +92,9 @@ r-makeBreakpointGrid(scaleName)
 	.-{rf}no-wrap{bd}{scaleName}
 		flex-wrap: nowrap;
 		
+	.-{rf}with-wrap{bd}{scaleName}
+		flex-wrap: wrap;
+		
 	.-{rf}at-first{bd}{scaleName}
 		order: -1;
 
@@ -136,16 +148,16 @@ buildRolleiflexGrid()
 			
 	.{rf}col
 		flex-flow: column nowrap;
-		padding-right: r-unit(rolleiflex.spaces.gutter / 2);
-		padding-left: r-unit(rolleiflex.spaces.gutter / 2);
+		padding-right: __rfColGutter;
+		padding-left: __rfColGutter;
 		flex: 1 1 100%;
 		max-width: 100%;
 
 	.{rf}row
 		flex: 1 1;
 		flex-flow: row wrap;
-		margin-right: -(r-unit(rolleiflex.spaces.gutter / 2));
-		margin-left: -(r-unit(rolleiflex.spaces.gutter / 2));
+		margin-right: -(__rfColGutter);
+		margin-left: -(__rfColGutter);
 
 		&.-{rf}reverse
 			flex-direction: row-reverse;
@@ -154,15 +166,15 @@ buildRolleiflexGrid()
 			&.-{rf}vertical
 				margin-left: initial
 				margin-right: initial;
-				margin-top: -(r-unit(rolleiflex.spaces.gutter / 2));
-				margin-bottom: -(r-unit(rolleiflex.spaces.gutter / 2));
+				margin-top: -(__rfColGutter);
+				margin-bottom: -(__rfColGutter);
 				flex-direction: column;
 
 				> .{rf}col
 						padding-left: initial;
 						padding-right: initial;
-						padding-top: r-unit(rolleiflex.spaces.gutter / 2);
-						padding-bottom: r-unit(rolleiflex.spaces.gutter / 2);
+						padding-top: __rfColGutter;
+						padding-bottom: __rfColGutter;
 
 				&.-{rf}reverse
 					flex-direction: column-reverse;
