@@ -1,8 +1,8 @@
 {
 	"name": "rolleiflex",
-	"version": "1.0.0-alpha.3",
+	"version": "1.0.0",
 	"description": "",
-	"main": "src/wrapper.styl",
+	"style": "src/wrapper.styl",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/kaisermann/rolleiflex.git"
