@@ -446,7 +446,7 @@
 	<section class="alignment bg--purple">
 		<div class="container">
 			<header class="section__header color--white">
-				<h2>Responsive Rows and Columns Alignments</h2>
+				<h2>Responsive Alignments and Sizes</h2>
 				<p>Title pretty self explanatory, but you can o the main media queries.</p>
 			</header>
 			<div class="grid color--black">
@@ -560,45 +560,39 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<section class="text-alignment bg--red">
-		<div class="container">
-			<header class="section__header color--white">
-				<h2>Helpers</h2>
-			</header>
 			<div class="grid color--black">
-				<h3 class="color--white">Responsive text</h3>
+				<h3 class="color--white">Used on any flex element</h3>
 				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">.h-text-{left|center|right|justify}@xx</span>
-					<div class="row -justify-center@xs">
-						<div class="col -size-6@xs">
-							<div class="col-content bg--green h-text-center@xs h-text-right@md h-text-left@sm">
-								<span class="bold@xs">.h-text-center@xs</span>
-								<span class="bold@sm">.h-text-left@sm</span>
-								<span class="bold@md">.h-text-right@md</span>
+					<span class="row-wrapper__title color--black">.-grow-none@xx</span>
+					<div class="row -no-wrap@xs">
+						<div class="col -size@xs -grow-none@xs">
+							<div class="col-content h-text-center@xs bg--green">
+								<span class="bold@xs">.grow-none@xs</span>
+							</div>
+						</div>
+						<div class="col -size@xs">
+							<div class="col-content h-text-center@xs bg--green">
+								<span class="bold@xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
 							</div>
 						</div>
 					</div>
+					<p class="color--black"><br> You can also use:  <strong>-shrink-none@xx</strong></p>
 				</div>
-				<h3 class="color--white">Display flex</h3>
 				<div class="row-wrapper bg--yellow">
-					<span class="row-wrapper__title color--black">.h-display-flex</span>
-					<div class="h-display-flex -justify-center@xs h-text-center@xs">
-						<div class="col-content bg--purple color--white">
-							<span class="bold@xs">.</span>
+					<span class="row-wrapper__title color--black">.-grow-double@xx</span>
+					<div class="row -no-wrap@xs">
+						<div class="col -size@xs -grow-double@xs">
+							<div class="col-content h-text-center@xs bg--green">
+								<span class="bold@xs">.grow-double@xs</span>
+							</div>
 						</div>
-						<div class="col-content bg--green color--white">
-							<span class="bold@xs">.</span>
-						</div>
-						<div class="col-content bg--blue color--white">
-							<span class="bold@xs">.</span>
-						</div>
-						<div class="col-content bg--brown color--white">
-							<span class="bold@xs">.</span>
+						<div class="col -size@xs">
+							<div class="col-content h-text-center@xs bg--green">
+								<span class="bold@xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+							</div>
 						</div>
 					</div>
-					<p><br>In case you want to use Rolleiflex's flex helpers and don't want to use rows and columns.</p>
+					<p class="color--black"><br> You can also use:  <strong>-shrink-double@xx</strong></p>
 				</div>
 			</div>
 		</div>
@@ -649,6 +643,47 @@
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="helpers bg--red">
+		<div class="container">
+			<header class="section__header color--white">
+				<h2>Helpers</h2>
+			</header>
+			<div class="grid color--black">
+				<h3 class="color--white">Responsive text</h3>
+				<div class="row-wrapper bg--yellow">
+					<span class="row-wrapper__title color--black">.h-text-{left|center|right|justify}@xx</span>
+					<div class="row -justify-center@xs">
+						<div class="col -size-6@xs">
+							<div class="col-content bg--green h-text-center@xs h-text-right@md h-text-left@sm">
+								<span class="bold@xs">.h-text-center@xs</span>
+								<span class="bold@sm">.h-text-left@sm</span>
+								<span class="bold@md">.h-text-right@md</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<h3 class="color--white">Display flex</h3>
+				<div class="row-wrapper bg--yellow">
+					<span class="row-wrapper__title color--black">.h-display-flex</span>
+					<div class="h-display-flex -justify-center@xs h-text-center@xs">
+						<div class="col-content bg--purple color--white">
+							<span class="bold@xs">.</span>
+						</div>
+						<div class="col-content bg--green color--white">
+							<span class="bold@xs">.</span>
+						</div>
+						<div class="col-content bg--blue color--white">
+							<span class="bold@xs">.</span>
+						</div>
+						<div class="col-content bg--brown color--white">
+							<span class="bold@xs">.</span>
+						</div>
+					</div>
+					<p><br>In case you want to use Rolleiflex's flex helpers and don't want to use rows and columns.</p>
 				</div>
 			</div>
 		</div>
