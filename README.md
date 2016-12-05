@@ -7,9 +7,13 @@ http://kaisermann.github.io/rolleiflex/
 
 ## Installation
 
-### bower
+### Package Managers
 
 `bower install --save rolleiflex`
+<br> or <br>
+`npm install --save rolleiflex`
+<br> or <br>
+`yarn add rolleiflex`
 
 ### Manual
 
