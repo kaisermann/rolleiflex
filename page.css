@@ -215,6 +215,36 @@
       -ms-flex-align: center;
           align-items: center;
 }
+.-wrapped-stretch\@xs {
+  -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+          align-content: stretch;
+}
+.-wrapped-start\@xs {
+  -webkit-align-content: flex-start;
+      -ms-flex-line-pack: start;
+          align-content: flex-start;
+}
+.-wrapped-end\@xs {
+  -webkit-align-content: flex-end;
+      -ms-flex-line-pack: end;
+          align-content: flex-end;
+}
+.-wrapped-center\@xs {
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+}
+.-wrapped-between\@xs {
+  -webkit-align-content: space-between;
+      -ms-flex-line-pack: justify;
+          align-content: space-between;
+}
+.-wrapped-around\@xs {
+  -webkit-align-content: space-around;
+      -ms-flex-line-pack: distribute;
+          align-content: space-around;
+}
 .-align-end\@xs {
   -webkit-box-align: end;
   -webkit-align-items: flex-end;
@@ -478,6 +508,36 @@
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .-wrapped-stretch\@sm {
+    -webkit-align-content: stretch;
+        -ms-flex-line-pack: stretch;
+            align-content: stretch;
+  }
+  .-wrapped-start\@sm {
+    -webkit-align-content: flex-start;
+        -ms-flex-line-pack: start;
+            align-content: flex-start;
+  }
+  .-wrapped-end\@sm {
+    -webkit-align-content: flex-end;
+        -ms-flex-line-pack: end;
+            align-content: flex-end;
+  }
+  .-wrapped-center\@sm {
+    -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+            align-content: center;
+  }
+  .-wrapped-between\@sm {
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+  }
+  .-wrapped-around\@sm {
+    -webkit-align-content: space-around;
+        -ms-flex-line-pack: distribute;
+            align-content: space-around;
   }
   .-align-end\@sm {
     -webkit-box-align: end;
@@ -744,6 +804,36 @@
         -ms-flex-align: center;
             align-items: center;
   }
+  .-wrapped-stretch\@md {
+    -webkit-align-content: stretch;
+        -ms-flex-line-pack: stretch;
+            align-content: stretch;
+  }
+  .-wrapped-start\@md {
+    -webkit-align-content: flex-start;
+        -ms-flex-line-pack: start;
+            align-content: flex-start;
+  }
+  .-wrapped-end\@md {
+    -webkit-align-content: flex-end;
+        -ms-flex-line-pack: end;
+            align-content: flex-end;
+  }
+  .-wrapped-center\@md {
+    -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+            align-content: center;
+  }
+  .-wrapped-between\@md {
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+  }
+  .-wrapped-around\@md {
+    -webkit-align-content: space-around;
+        -ms-flex-line-pack: distribute;
+            align-content: space-around;
+  }
   .-align-end\@md {
     -webkit-box-align: end;
     -webkit-align-items: flex-end;
@@ -1008,6 +1098,36 @@
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .-wrapped-stretch\@lg {
+    -webkit-align-content: stretch;
+        -ms-flex-line-pack: stretch;
+            align-content: stretch;
+  }
+  .-wrapped-start\@lg {
+    -webkit-align-content: flex-start;
+        -ms-flex-line-pack: start;
+            align-content: flex-start;
+  }
+  .-wrapped-end\@lg {
+    -webkit-align-content: flex-end;
+        -ms-flex-line-pack: end;
+            align-content: flex-end;
+  }
+  .-wrapped-center\@lg {
+    -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+            align-content: center;
+  }
+  .-wrapped-between\@lg {
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
+            align-content: space-between;
+  }
+  .-wrapped-around\@lg {
+    -webkit-align-content: space-around;
+        -ms-flex-line-pack: distribute;
+            align-content: space-around;
   }
   .-align-end\@lg {
     -webkit-box-align: end;
@@ -1355,6 +1475,7 @@ section.title {
 .row-wrapper__title {
   display: block;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 .row-wrapper__title--no-mg {
   margin-bottom: 0;
@@ -1412,4 +1533,10 @@ small {
 }
 .download-links a:hover {
   background-color: #93648d;
+}
+.row--wrapped {
+  min-height: 300px;
+}
+.row--wrapped .col {
+  margin: 15px 0;
 }
