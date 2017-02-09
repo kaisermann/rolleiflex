@@ -1,6 +1,8 @@
 # RolleiFLEX
 
-A CSS grid framework built with flexboxes and based on the [BEMV](http://webuild.envato.com/blog/chainable-bem-modifiers/) methodology.
+A CSS Flexbox grid / helper framework based on the [BEMV](http://webuild.envato.com/blog/chainable-bem-modifiers/) methodology.
+
+It's also very small: 16kb when minifed and **1.96kb** when minified and gzipped.
 
 ## Demonstrations
 http://kaisermann.github.io/rolleiflex/
