@@ -215,32 +215,32 @@
       -ms-flex-align: center;
           align-items: center;
 }
-.-wrapped-stretch\@xs {
+.-content-stretch\@xs {
   -webkit-align-content: stretch;
       -ms-flex-line-pack: stretch;
           align-content: stretch;
 }
-.-wrapped-start\@xs {
+.-content-start\@xs {
   -webkit-align-content: flex-start;
       -ms-flex-line-pack: start;
           align-content: flex-start;
 }
-.-wrapped-end\@xs {
+.-content-end\@xs {
   -webkit-align-content: flex-end;
       -ms-flex-line-pack: end;
           align-content: flex-end;
 }
-.-wrapped-center\@xs {
+.-content-center\@xs {
   -webkit-align-content: center;
       -ms-flex-line-pack: center;
           align-content: center;
 }
-.-wrapped-between\@xs {
+.-content-between\@xs {
   -webkit-align-content: space-between;
       -ms-flex-line-pack: justify;
           align-content: space-between;
 }
-.-wrapped-around\@xs {
+.-content-around\@xs {
   -webkit-align-content: space-around;
       -ms-flex-line-pack: distribute;
           align-content: space-around;
@@ -509,32 +509,32 @@
         -ms-flex-align: center;
             align-items: center;
   }
-  .-wrapped-stretch\@sm {
+  .-content-stretch\@sm {
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
   }
-  .-wrapped-start\@sm {
+  .-content-start\@sm {
     -webkit-align-content: flex-start;
         -ms-flex-line-pack: start;
             align-content: flex-start;
   }
-  .-wrapped-end\@sm {
+  .-content-end\@sm {
     -webkit-align-content: flex-end;
         -ms-flex-line-pack: end;
             align-content: flex-end;
   }
-  .-wrapped-center\@sm {
+  .-content-center\@sm {
     -webkit-align-content: center;
         -ms-flex-line-pack: center;
             align-content: center;
   }
-  .-wrapped-between\@sm {
+  .-content-between\@sm {
     -webkit-align-content: space-between;
         -ms-flex-line-pack: justify;
             align-content: space-between;
   }
-  .-wrapped-around\@sm {
+  .-content-around\@sm {
     -webkit-align-content: space-around;
         -ms-flex-line-pack: distribute;
             align-content: space-around;
@@ -804,32 +804,32 @@
         -ms-flex-align: center;
             align-items: center;
   }
-  .-wrapped-stretch\@md {
+  .-content-stretch\@md {
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
   }
-  .-wrapped-start\@md {
+  .-content-start\@md {
     -webkit-align-content: flex-start;
         -ms-flex-line-pack: start;
             align-content: flex-start;
   }
-  .-wrapped-end\@md {
+  .-content-end\@md {
     -webkit-align-content: flex-end;
         -ms-flex-line-pack: end;
             align-content: flex-end;
   }
-  .-wrapped-center\@md {
+  .-content-center\@md {
     -webkit-align-content: center;
         -ms-flex-line-pack: center;
             align-content: center;
   }
-  .-wrapped-between\@md {
+  .-content-between\@md {
     -webkit-align-content: space-between;
         -ms-flex-line-pack: justify;
             align-content: space-between;
   }
-  .-wrapped-around\@md {
+  .-content-around\@md {
     -webkit-align-content: space-around;
         -ms-flex-line-pack: distribute;
             align-content: space-around;
@@ -1099,32 +1099,32 @@
         -ms-flex-align: center;
             align-items: center;
   }
-  .-wrapped-stretch\@lg {
+  .-content-stretch\@lg {
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
   }
-  .-wrapped-start\@lg {
+  .-content-start\@lg {
     -webkit-align-content: flex-start;
         -ms-flex-line-pack: start;
             align-content: flex-start;
   }
-  .-wrapped-end\@lg {
+  .-content-end\@lg {
     -webkit-align-content: flex-end;
         -ms-flex-line-pack: end;
             align-content: flex-end;
   }
-  .-wrapped-center\@lg {
+  .-content-center\@lg {
     -webkit-align-content: center;
         -ms-flex-line-pack: center;
             align-content: center;
   }
-  .-wrapped-between\@lg {
+  .-content-between\@lg {
     -webkit-align-content: space-between;
         -ms-flex-line-pack: justify;
             align-content: space-between;
   }
-  .-wrapped-around\@lg {
+  .-content-around\@lg {
     -webkit-align-content: space-around;
         -ms-flex-line-pack: distribute;
             align-content: space-around;
