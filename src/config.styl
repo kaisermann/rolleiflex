@@ -11,7 +11,6 @@ rolleiflex = {
 	"build": {
 		"container": true,	    		// Should build the .container CSS?
 		"responsiveText": true,   	// Should build the .text-position@breakpoint CSS?
-    "verticalGrid": false     	// Should build css for vertical grids?
 	},
 	"classScaleDivisor": "\@",
 	"classPrefix": "",
@@ -28,7 +27,7 @@ rolleiflex = {
 	// Breakpoint Stuff
 	"breakpoints": {
 		"xs": {
-			"breakpoint": 0,
+			"breakpoint": 0,					// Smallest breakpoint must have 'breakpoint' set to '0'
 		},
 		"sm": {
 			"breakpoint": 767px,			// Breakpoint min size = @media(min-width:xxx)

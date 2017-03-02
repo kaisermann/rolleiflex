@@ -865,64 +865,66 @@
 					</div>
 				</div>
 			</div>
-			<div class="grid color--white">
-				<h3 class="color--white">Used on row elements</h3>
+		</div>
+	</section>
+	<section class="automatic bg--purple color--white">
+		<div class="container">
+			<header class="section__header">
+				<h2>Row direction</h2>
+				<p>You can change the direction of a row/column at any given breakpoint!</p>
+			</header>
+			<div class="grid color--black">
 				<div class="row-wrapper bg--white">
-					<span class="row-wrapper__title color--black">.row</span>
-					<div class="row">
+					<span class="row-wrapper__title color--black">.-dir-row@xx</span>
+					<div class="row -dir-row@xs">
 						<div class="col -size-3@xs">
-							<div class="col-content h-text-center@xs bg--red">
+							<div class="col-content h-text-center@xs bg--green">
 								<span class="bold@xs">1</span>
 							</div>
 						</div>
 						<div class="col -size-3@xs">
-							<div class="col-content h-text-center@xs bg--red">
+							<div class="col-content h-text-center@xs bg--green">
 								<span class="bold@xs">2</span>
 							</div>
 						</div>
 						<div class="col -size-3@xs">
-							<div class="col-content h-text-center@xs bg--red">
+							<div class="col-content h-text-center@xs bg--green">
 								<span class="bold@xs">3</span>
 							</div>
 						</div>
 						<div class="col -size-3@xs">
-							<div class="col-content h-text-center@xs bg--red">
+							<div class="col-content h-text-center@xs bg--green">
 								<span class="bold@xs">4</span>
 							</div>
 						</div>
 					</div>
+					<p class="color--black"><br><strong>-dir-col@xx</strong> is also available.</p>
 				</div>
 				<div class="row-wrapper bg--white">
-					<span class="row-wrapper__title color--black">.row.-reverse</span>
-					<div class="row -reverse">
+					<span class="row-wrapper__title color--black">.-dir-row-reverse@xx</span>
+					<div class="row -dir-row-reverse@xs">
 						<div class="col -size-3@xs">
-							<div class="col-content h-text-center@xs bg--red">
+							<div class="col-content h-text-center@xs bg--green">
 								<span class="bold@xs">1</span>
 							</div>
 						</div>
 						<div class="col -size-3@xs">
-							<div class="col-content h-text-center@xs bg--red">
+							<div class="col-content h-text-center@xs bg--green">
 								<span class="bold@xs">2</span>
 							</div>
 						</div>
 						<div class="col -size-3@xs">
-							<div class="col-content h-text-center@xs bg--red">
+							<div class="col-content h-text-center@xs bg--green">
 								<span class="bold@xs">3</span>
 							</div>
 						</div>
 						<div class="col -size-3@xs">
-							<div class="col-content h-text-center@xs bg--red">
+							<div class="col-content h-text-center@xs bg--green">
 								<span class="bold@xs">4</span>
 							</div>
 						</div>
 					</div>
-				</div>
-				<h3 class="color--white">Optional: vertical rows</h3>
-				<div class="row-wrapper bg--white">
-					<span class="row-wrapper__title row-wrapper__title--no-mg color--black">.row.-vertical</span>
-				</div>
-				<div class="row-wrapper bg--white">
-					<span class="row-wrapper__title row-wrapper__title--no-mg color--black">.row.-vertical.-reverse</span>
+					<p class="color--black"><br><strong>-dir-col-reverse@xx</strong> is also available.</p>
 				</div>
 			</div>
 		</div>
@@ -935,7 +937,7 @@
 					Want to change some default configuration?
 					<br> Check the 'src/config.styl' or override any 'rolleiflex' attribute inside your own stylus stylesheet.
 					<br><br>
-					<strong>Note: if you prefer to import the stylus stylesheet, import the 'src/wrapper.styl' and do not forget to call the 'buildRolleiflexGrid()' mixin.</strong>
+					<strong>Note: if you prefer to import the stylus stylesheet, import the 'src/wrapper.styl' and do not forget to call the 'buildRolleiflex()' mixin.</strong>
 				</p>
 			</header>
 			<div class="config">
@@ -967,10 +969,6 @@
 
 				<div class="config__attr">
 					<span class="config__attr-name">rolleiflex.build.responsiveText</span> <span class="config__attr-default">true</span> Should build the responsive text CSS features? True or False.
-				</div>
-
-				<div class="config__attr">
-					<span class="config__attr-name">rolleiflex.build.verticalGrid</span> <span class="config__attr-default">false</span> Should build properties for vertical grids as well (.row.-vertical...)?
 				</div>
 
 				<br>
