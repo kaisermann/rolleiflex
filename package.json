@@ -1,6 +1,6 @@
 {
 	"name": "rolleiflex",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Just a flexbox grid & herlper framework.",
 	"style": "src/wrapper.styl",
 	"repository": {

@@ -187,11 +187,11 @@ buildRolleiflex()
 	.{_rfPref}row
 	.{_rfPref}col
 		@extend .h-display-flex
-		flex: 1 1 100%;
 		if(rolleiflex.autoBorderBox)
 			box-sizing: border-box;
 			
 	.{_rfPref}col
+		flex: 1 1 100%;
 		flex-flow: column nowrap;
 		padding-right: _rfColGutter;
 		padding-left: _rfColGutter;

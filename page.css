@@ -14,14 +14,11 @@
   display: -ms-flexbox;
   display: flex;
 }
-.row,
 .col {
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 100%;
       -ms-flex: 1 1 100%;
           flex: 1 1 100%;
-}
-.col {
   -webkit-flex-flow: column nowrap;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
