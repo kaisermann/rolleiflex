@@ -164,7 +164,7 @@
 }
 @media (min-width: 767px) {
   .container {
-    width: 1170px;
+    width: 740px;
   }
   .row.-no-gutter\@sm {
     margin-left: 0;
@@ -298,7 +298,7 @@
 }
 @media (min-width: 991px) {
   .container {
-    width: 1170px;
+    width: 960px;
   }
   .row.-no-gutter\@md {
     margin-left: 0;
