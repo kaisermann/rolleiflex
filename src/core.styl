@@ -126,7 +126,7 @@ r-makeBreakpointGrid(scaleName)
 
 	if(rolleiflex.build.container && !isFirstBP)
 		.{_rfPref}container
-			width: r-unit(scaleOptions.container);
+			width: r-unit(rolleiflex.breakpoints[scaleName].container);
 			
 	// For rows
 	.{_rfPref}row
@@ -191,11 +191,11 @@ buildRolleiflex()
 			box-sizing: border-box;
 			
 	.{_rfPref}col
-		flex: 1 1 100%;
+		max-width: 100%;
+		flex: 1 1 0;
 		flex-flow: column nowrap;
 		padding-right: _rfColGutter;
 		padding-left: _rfColGutter;
-		max-width: 100%;
 
 	.{_rfPref}row
 		flex-flow: row wrap;
