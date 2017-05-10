@@ -33,6 +33,9 @@
   margin-right: -12px;
   margin-left: -12px;
 }
+.container {
+  width: 100%;
+}
 .row.-no-gutter\@xs {
   margin-left: 0;
   margin-right: 0;
@@ -162,7 +165,7 @@
 .-offset-11\@xs {
   margin-left: 91.666667%;
 }
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .container {
     width: 740px;
   }
@@ -296,7 +299,7 @@
     margin-left: 91.666667%;
   }
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   .container {
     width: 960px;
   }
@@ -430,7 +433,7 @@
     margin-left: 91.666667%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1201px) {
   .container {
     width: 1170px;
   }
@@ -752,7 +755,7 @@
 .h-text-justify\@xs {
   text-align: justify;
 }
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .-justify-start\@sm {
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
@@ -942,7 +945,7 @@
     text-align: justify;
   }
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   .-justify-start\@md {
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
@@ -1132,7 +1135,7 @@
     text-align: justify;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1201px) {
   .-justify-start\@lg {
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
@@ -1332,40 +1335,40 @@
 .bold\@xs {
   font-weight: bold;
 }
-@media (min-width: 767px) {
+@media (min-width: ) {
   .bold\@sm {
     font-weight: bold;
   }
 }
-@media (min-width: 991px) {
+@media (min-width: ) {
   .bold\@md {
     font-weight: bold;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: ) {
   .bold\@lg {
     font-weight: bold;
   }
 }
-@media (min-width: 0px) and (max-width: 767px) {
+@media (min-width: ) and (max-width: ) {
   .color-xs {
     color: #ffc65d;
     text-decoration: underline;
   }
 }
-@media (min-width: 767px) and (max-width: 991px) {
+@media (min-width: ) and (max-width: ) {
   .color-sm {
     color: #ffc65d;
     text-decoration: underline;
   }
 }
-@media (min-width: 991px) and (max-width: 1200px) {
+@media (min-width: ) and (max-width: ) {
   .color-md {
     color: #ffc65d;
     text-decoration: underline;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: ) {
   .color-lg {
     color: #ffc65d;
     text-decoration: underline;

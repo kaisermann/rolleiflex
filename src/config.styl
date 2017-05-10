@@ -1,44 +1,46 @@
 rolleiflex = {
 	// Configurations
-	"baseFontSize": 16px,					// HTML font size, for the use.em option
-	"autoBorderBox": true,				// Set to false if your CSS already has something like * {box-sizing:border-box}
+	"baseFontSize": 16px					// HTML font size, for the use.em option
+	"autoBorderBox": true				// Set to false if your CSS already has something like * {box-sizing:border-box}
 
 	// Use
 	"use": {
-		"em": false,								// Use the em unit instead of px (true or false),
-	},
+		"em": false								// Use the em unit instead of px (true or false),
+	}
+	
 	// Builds
 	"build": {
-		"container": true,	    		// Should build the .container CSS?
-		"responsiveText": true,   	// Should build the .text-position@breakpoint CSS?
-	},
-	"classScaleDivisor": "\@",
-	"classPrefix": "",
+		"container": true	    		// Should build the .container CSS?
+		"responsiveText": true   	// Should build the .text-position@breakpoint CSS?
+	}
+	
+	"classScaleDivisor": "\@"
+	"classPrefix": ""
 
 	// Columns
-	"columns": 12,								// Number of columns in the grid
+	"columns": 12									// Number of columns in the grid
 
 	// Spacing
-	"spaces":
-	{
-		"gutter": 24px,							// Gutter size
+	"spaces": {
+		"gutter": 24px							// Gutter size
 		"containerPadding":  12px		// .container--padded padding size
-	},
+	}
+	
 	// Breakpoint Stuff
 	"breakpoints": {
 		"xs": {
-			"breakpoint": 0,					// Smallest breakpoint must have 'breakpoint' set to '0'
-		},
+			"container": 100%
+		}
 		"sm": {
-			"breakpoint": 767px,			// Breakpoint min size = @media(min-width:xxx)
+			"triggerAt": 768px			  // Breakpoint min size = @media(min-width:xxx)
 			"container": 740px				// Container max-width
-		},
+		}
 		"md": {
-			"breakpoint": 991px,
+			"triggerAt": 992px
 			"container": 960px
-		},
+		}
 		"lg": {
-			"breakpoint": 1200px,
+			"triggerAt": 1201px
 			"container": 1170px
 		}
 	}

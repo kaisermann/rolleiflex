@@ -1,214 +1,212 @@
-_rfDiv = unquote(rolleiflex.classScaleDivisor)
-_rfPref = unquote(rolleiflex.classPrefix)
-_rfColGutter = r-unit(rolleiflex.spaces.gutter / 2);
-_smallestBP = 'xs'
-
-// Gets the smallest breakpoint name
-for scaleName, scaleOptions in rolleiflex.breakpoints
-	if(scaleOptions.breakpoint == 0)
-		_smallestBP = scaleName
-		break
-
 r-unit(p)
+	if(!p || unit(p) == '%')
+		return p
+	
 	if(rolleiflex.use.em)
 		return unit(p / rolleiflex.baseFontSize, "em")
+		
 	return unit(p,"px")
+
+_rfDiv = unquote(rolleiflex.classScaleDivisor)
+_rfPref = unquote(rolleiflex.classPrefix)
+_rfColGutter = r-unit(rolleiflex.spaces.gutter / 2)
 
 r-makeBreakpointHelpers(scaleName)
 	// Flex element children alignment
 	.-{_rfPref}justify-start{_rfDiv}{scaleName}
-		justify-content: flex-start;
+		justify-content: flex-start
 
 	.-{_rfPref}justify-center{_rfDiv}{scaleName}
-		justify-content: center;
+		justify-content: center
 
 	.-{_rfPref}justify-end{_rfDiv}{scaleName}
-		justify-content: flex-end;
+		justify-content: flex-end
 
 	.-{_rfPref}justify-around{_rfDiv}{scaleName}
-		justify-content: space-around;
+		justify-content: space-around
 
 	.-{_rfPref}justify-between{_rfDiv}{scaleName}
-		justify-content: space-between;
+		justify-content: space-between
 
 	.-{_rfPref}align-start{_rfDiv}{scaleName}
-		align-items: flex-start;
+		align-items: flex-start
 
 	.-{_rfPref}align-center{_rfDiv}{scaleName}
-		align-items: center;
+		align-items: center
 
 	.-{_rfPref}align-end{_rfDiv}{scaleName}
-		align-items: flex-end;
+		align-items: flex-end
 
 	.-{_rfPref}self-start{_rfDiv}{scaleName}
-		align-self: flex-start;
+		align-self: flex-start
 
 	.-{_rfPref}self-center{_rfDiv}{scaleName}
-		align-self: center;
+		align-self: center
 
 	.-{_rfPref}self-end{_rfDiv}{scaleName}
-		align-self: flex-end;
+		align-self: flex-end
 
 	// Flex element wrapped children alignment
 	.-{_rfPref}content-stretch{_rfDiv}{scaleName}
-		align-content: stretch;
+		align-content: stretch
 
 	.-{_rfPref}content-start{_rfDiv}{scaleName}
-		align-content: flex-start;
+		align-content: flex-start
 
 	.-{_rfPref}content-end{_rfDiv}{scaleName}
-		align-content: flex-end;
+		align-content: flex-end
 
 	.-{_rfPref}content-center{_rfDiv}{scaleName}
-		align-content: center;
+		align-content: center
 
 	.-{_rfPref}content-between{_rfDiv}{scaleName}
-		align-content: space-between;
+		align-content: space-between
 
 	.-{_rfPref}content-around{_rfDiv}{scaleName}
-		align-content: space-around;
+		align-content: space-around
 
 	// Flex element children wrappning
 	.-{_rfPref}no-wrap{_rfDiv}{scaleName}
-		flex-wrap: nowrap;
+		flex-wrap: nowrap
 
 	.-{_rfPref}with-wrap{_rfDiv}{scaleName}
-		flex-wrap: wrap;
+		flex-wrap: wrap
 
 	// Flex element children order
 	.-{_rfPref}at-first{_rfDiv}{scaleName}
-		order: -1;
+		order: -1
 
 	.-{_rfPref}at-last{_rfDiv}{scaleName}
-		order: 1;
+		order: 1
 
 	// Flex element auto sizing
 	.-{_rfPref}grow-none{_rfDiv}{scaleName}
-		flex-grow: 0;
+		flex-grow: 0
 
 	.-{_rfPref}shrink-none{_rfDiv}{scaleName}
-		flex-shrink: 0;
+		flex-shrink: 0
 
 	.-{_rfPref}grow-single{_rfDiv}{scaleName}
-		flex-grow: 1;
+		flex-grow: 1
 
 	.-{_rfPref}shrink-single{_rfDiv}{scaleName}
-		flex-shrink: 1;
+		flex-shrink: 1
 
 	.-{_rfPref}grow-double{_rfDiv}{scaleName}
-		flex-grow: 2;
+		flex-grow: 2
 
 	.-{_rfPref}shrink-double{_rfDiv}{scaleName}
-		flex-shrink: 2;
+		flex-shrink: 2
 
 	// Flex element direction
 	.-{_rfPref}dir-row{_rfDiv}{scaleName}
-		flex-direction: row;
+		flex-direction: row
 
 	.-{_rfPref}dir-col{_rfDiv}{scaleName}
-		flex-direction: column;
+		flex-direction: column
 
 	.-{_rfPref}dir-row-reverse{_rfDiv}{scaleName}
-		flex-direction: row-reverse;
+		flex-direction: row-reverse
 
 	.-{_rfPref}dir-col-reverse{_rfDiv}{scaleName}
-		flex-direction: column-reverse;
+		flex-direction: column-reverse
 
 	// Text alignment helpers
 	if(rolleiflex.build.responsiveText)
 		for alignment in (left center right justify)
 			.h-text-{alignment}{_rfDiv}{scaleName}
-				text-align: alignment;
+				text-align: alignment
 
 r-makeBreakpointGrid(scaleName)
 	scaleName = unquote(scaleName)
-	isFirstBP = rolleiflex.breakpoints[scaleName].breakpoint == 0
 
-	if(rolleiflex.build.container && !isFirstBP)
-		.{_rfPref}container
-			width: r-unit(rolleiflex.breakpoints[scaleName].container);
+	if(rolleiflex.build.container)
+		containerWidth = rolleiflex.breakpoints[scaleName].container
+		if(containerWidth)
+			.{_rfPref}container
+				width: r-unit(containerWidth)
 			
 	// For rows
 	.{_rfPref}row
 		&.-{_rfPref}no-gutter{_rfDiv}{scaleName}
-			margin-left: 0;
-			margin-right: 0;
+			margin-left: 0
+			margin-right: 0
 
 			> .{_rfPref}col
-				padding-left: 0;
-				padding-right: 0;
+				padding-left: 0
+				padding-right: 0
 				
 		&.-{_rfPref}with-gutter{_rfDiv}{scaleName}
-			margin-left: -(_rfColGutter);
-			margin-right: -(_rfColGutter);
+			margin-left: -(_rfColGutter)
+			margin-right: -(_rfColGutter)
 
 			> .{_rfPref}col
-				padding-left: _rfColGutter;
-				padding-right: _rfColGutter;
+				padding-left: _rfColGutter
+				padding-right: _rfColGutter
 
 	// For columns
 	.-{_rfPref}size{_rfDiv}{scaleName}
-		flex-basis: auto;
+		flex-basis: auto
 		
 	for col in (1..rolleiflex.columns)
 		percentageWidth = round(percentage(col/rolleiflex.columns),6)
 		offsetWidth = round(percentage((col - 1)/rolleiflex.columns),6)
 
 		&.-{_rfPref}size-{col}{_rfDiv}{scaleName}
-			flex-basis: percentageWidth;
-			max-width: percentageWidth;
+			flex-basis: percentageWidth
+			max-width: percentageWidth
 
 		&.-{_rfPref}offset-{col - 1}{_rfDiv}{scaleName}
-			margin-left: offsetWidth;
+			margin-left: offsetWidth
 					
 r-loopBreakpoints(callbackMixin)
 	for scaleName, scaleOptions in rolleiflex.breakpoints
-		if(scaleOptions.breakpoint == 0)
-			callbackMixin(scaleName);
+		if(!scaleOptions.triggerAt || scaleOptions.triggerAt == 0)
+			callbackMixin(scaleName)
 		else
-			@media (min-width: r-unit(scaleOptions.breakpoint))
-				callbackMixin(scaleName);
+			@media (min-width: r-unit(scaleOptions.triggerAt))
+				callbackMixin(scaleName)
 				
 buildRolleiflex()
 	if(rolleiflex.build.container)
 		.{_rfPref}container
 		.{_rfPref}container-fluid
-			max-width: 100%;
-			margin-right: auto;
-			margin-left: auto;
-			padding-right: r-unit(rolleiflex.spaces.containerPadding);
-			padding-left: r-unit(rolleiflex.spaces.containerPadding);
+			max-width: 100%
+			margin-right: auto
+			margin-left: auto
+			padding-right: r-unit(rolleiflex.spaces.containerPadding)
+			padding-left: r-unit(rolleiflex.spaces.containerPadding)
 			if(rolleiflex.autoBorderBox)
-				box-sizing: border-box;
+				box-sizing: border-box
 			
 	.h-display-flex
-		display: flex;
+		display: flex
 
 	.{_rfPref}row
 	.{_rfPref}col
 		@extend .h-display-flex
 		if(rolleiflex.autoBorderBox)
-			box-sizing: border-box;
+			box-sizing: border-box
 			
 	.{_rfPref}col
-		max-width: 100%;
-		flex: 1 1 0;
-		flex-flow: column nowrap;
-		padding-right: _rfColGutter;
-		padding-left: _rfColGutter;
+		max-width: 100%
+		flex: 1 1 0
+		flex-flow: column nowrap
+		padding-right: _rfColGutter
+		padding-left: _rfColGutter
 
 	.{_rfPref}row
-		flex-flow: row wrap;
-		margin-right: -(_rfColGutter);
-		margin-left: -(_rfColGutter);
+		flex-flow: row wrap
+		margin-right: -(_rfColGutter)
+		margin-left: -(_rfColGutter)
+
+	// Builds responsive grid
+	r-loopBreakpoints(r-makeBreakpointGrid)
 
 	// Builds responsive helpers
-	r-loopBreakpoints(r-makeBreakpointGrid);
-
-	// Builds responsive helpers
-	r-loopBreakpoints(r-makeBreakpointHelpers);
+	r-loopBreakpoints(r-makeBreakpointHelpers)
 					
 	// Generic as f*ck
 	.{_rfPref}row.-{_rfPref}fill > .{_rfPref}col > *
 	.-{_rfPref}fill > *
-		flex-grow: 1;
+		flex-grow: 1

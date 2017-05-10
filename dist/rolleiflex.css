@@ -38,6 +38,9 @@
   margin-right: -12px;
   margin-left: -12px;
 }
+.container {
+  width: 100%;
+}
 .row.-no-gutter\@xs {
   margin-left: 0;
   margin-right: 0;
@@ -167,7 +170,7 @@
 .-offset-11\@xs {
   margin-left: 91.666667%;
 }
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .container {
     width: 740px;
   }
@@ -301,7 +304,7 @@
     margin-left: 91.666667%;
   }
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   .container {
     width: 960px;
   }
@@ -435,7 +438,7 @@
     margin-left: 91.666667%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1201px) {
   .container {
     width: 1170px;
   }
@@ -757,7 +760,7 @@
 .h-text-justify\@xs {
   text-align: justify;
 }
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .-justify-start\@sm {
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
@@ -947,7 +950,7 @@
     text-align: justify;
   }
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   .-justify-start\@md {
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
@@ -1137,7 +1140,7 @@
     text-align: justify;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1201px) {
   .-justify-start\@lg {
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
