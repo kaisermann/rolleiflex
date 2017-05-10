@@ -2,7 +2,7 @@
 
 A CSS Flexbox grid / helper framework based on the [BEMV](http://webuild.envato.com/blog/chainable-bem-modifiers/) methodology.
 
-It's also very small: 18kb when minifed and **2.13kb** when minified and gzipped.
+It's also very small: 18kb when minifed and **2.14kb** when minified and gzipped.
 
 ## Demonstrations
 http://kaisermann.github.io/rolleiflex/

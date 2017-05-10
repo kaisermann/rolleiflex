@@ -1,4 +1,4 @@
-r-unit(p)
+_rUnit(p)
 	if(!p || unit(p) == '%')
 		return p
 	
@@ -9,9 +9,9 @@ r-unit(p)
 
 _rfDiv = unquote(rolleiflex.classScaleDivisor)
 _rfPref = unquote(rolleiflex.classPrefix)
-_rfColGutter = r-unit(rolleiflex.spaces.gutter / 2)
+_rfColGutter = _rUnit(rolleiflex.spaces.gutter / 2)
 
-r-makeBreakpointHelpers(scaleName)
+_rMakeBreakpointHelpers(scaleName)
 	// Flex element children alignment
 	.-{_rfPref}justify-start{_rfDiv}{scaleName}
 		justify-content: flex-start
@@ -117,14 +117,14 @@ r-makeBreakpointHelpers(scaleName)
 			.h-text-{alignment}{_rfDiv}{scaleName}
 				text-align: alignment
 
-r-makeBreakpointGrid(scaleName)
+_rMakeBreakpointGrid(scaleName)
 	scaleName = unquote(scaleName)
 
 	if(rolleiflex.build.container)
 		containerWidth = rolleiflex.breakpoints[scaleName].container
 		if(containerWidth)
 			.{_rfPref}container
-				width: r-unit(containerWidth)
+				width: _rUnit(containerWidth)
 			
 	// For rows
 	.{_rfPref}row
@@ -159,12 +159,12 @@ r-makeBreakpointGrid(scaleName)
 		&.-{_rfPref}offset-{col - 1}{_rfDiv}{scaleName}
 			margin-left: offsetWidth
 					
-r-loopBreakpoints(callbackMixin)
+_rLoopBreakpoints(callbackMixin)
 	for scaleName, scaleOptions in rolleiflex.breakpoints
 		if(!scaleOptions.triggerAt || scaleOptions.triggerAt == 0)
 			callbackMixin(scaleName)
 		else
-			@media (min-width: r-unit(scaleOptions.triggerAt))
+			@media (min-width: _rUnit(scaleOptions.triggerAt))
 				callbackMixin(scaleName)
 				
 buildRolleiflex()
@@ -174,8 +174,8 @@ buildRolleiflex()
 			max-width: 100%
 			margin-right: auto
 			margin-left: auto
-			padding-right: r-unit(rolleiflex.spaces.containerPadding)
-			padding-left: r-unit(rolleiflex.spaces.containerPadding)
+			padding-right: _rUnit(rolleiflex.spaces.containerPadding)
+			padding-left: _rUnit(rolleiflex.spaces.containerPadding)
 			if(rolleiflex.autoBorderBox)
 				box-sizing: border-box
 			
@@ -201,10 +201,10 @@ buildRolleiflex()
 		margin-left: -(_rfColGutter)
 
 	// Builds responsive grid
-	r-loopBreakpoints(r-makeBreakpointGrid)
+	_rLoopBreakpoints(_rMakeBreakpointGrid)
 
 	// Builds responsive helpers
-	r-loopBreakpoints(r-makeBreakpointHelpers)
+	_rLoopBreakpoints(_rMakeBreakpointHelpers)
 					
 	// Generic as f*ck
 	.{_rfPref}row.-{_rfPref}fill > .{_rfPref}col > *
