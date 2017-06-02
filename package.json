@@ -1,7 +1,7 @@
 {
 	"name": "rolleiflex",
-	"version": "3.0.0",
-	"description": "Just a flexbox grid & herlper framework.",
+	"version": "3.1.1",
+	"description": "Just a flexbox grid & helper framework.",
 	"style": "src/wrapper.styl",
 	"repository": {
 		"type": "git",
