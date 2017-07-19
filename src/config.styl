@@ -7,13 +7,13 @@ rolleiflex = {
 	"use": {
 		"em": false								// Use the em unit instead of px (true or false),
 	}
-	
+
 	// Builds
 	"build": {
 		"container": true	    		// Should build the .container CSS?
 		"responsiveText": true   	// Should build the .text-position@breakpoint CSS?
 	}
-	
+
 	"classScaleDivisor": "\@"
 	"classPrefix": ""
 
@@ -25,22 +25,22 @@ rolleiflex = {
 		"gutter": 24px							// Gutter size
 		"containerPadding":  12px		// .container--padded padding size
 	}
-	
+
 	// Breakpoint Stuff
 	"breakpoints": {
 		"xs": {
 			"container": 100%
 		}
 		"sm": {
-			"triggerAt": 768px			  // Breakpoint min size = @media(min-width:xxx)
+			"minWidth": 768px					// Breakpoint min size = @media(min-width:xxx)
 			"container": 740px				// Container max-width
 		}
 		"md": {
-			"triggerAt": 992px
+			"minWidth": 992px
 			"container": 960px
 		}
 		"lg": {
-			"triggerAt": 1201px
+			"minWidth": 1201px
 			"container": 1170px
 		}
 	}
