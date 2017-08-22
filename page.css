@@ -1,11 +1,3 @@
-.container,
-.container-fluid {
-  max-width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 12px;
-  padding-left: 12px;
-}
 .h-display-flex,
 .row,
 .row.-fill > .col,
@@ -14,6 +6,14 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+.container,
+.container-fluid {
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 12px;
+  padding-left: 12px;
 }
 .col {
   max-width: 100%;
@@ -566,6 +566,13 @@
   .-offset-11\@lg {
     margin-left: 91.666667%;
   }
+}
+.row.-fill > .col > *,
+.col.-fill > * {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 .-justify-start\@xs {
   -webkit-box-pack: start;
@@ -1320,13 +1327,6 @@
   .h-text-justify\@lg {
     text-align: justify;
   }
-}
-.row.-fill > .col > *,
-.col.-fill > * {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
 }
 .bold\@xs {
   font-weight: bold;
