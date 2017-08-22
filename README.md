@@ -25,7 +25,7 @@ http://kaisermann.github.io/rolleiflex/
 ## Usage
 
 * Manually import the `rolleiflex.min.css` file.
-* Import the 'index.styl' and call the `buildRolleiflex()` mixin on one of your .styl files.
+* Import the 'index.styl' and call the `buildRolleiflex(buildGrid:true,buildHelpers:true)` mixin on one of your .styl files.
 
 ## Inspiration
 

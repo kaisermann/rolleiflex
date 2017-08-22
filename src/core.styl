@@ -9,7 +9,7 @@ $helpersDict = {
 	direction: ((row) (row-reverse) (col column) (col-reverse column-reverse))
 }
 
-buildRolleiflex()
+buildRolleiflex($buildGrid = true, $buildHelpers = true)
 	$scaleSymbol = unquote(rolleiflex.classScaleDivisor)
 	$pref = unquote(rolleiflex.classPrefix)
 	$gutter = rUnit(rolleiflex.spaces.gutter / 2)
@@ -24,7 +24,7 @@ buildRolleiflex()
 		return unit(u, 'px')
 
 	rBreakpointHelpers($scaleName)
-	
+
 		rBuildHelper($aliasPart, $prop, $dict)
 			for $c in $helpersDict[$dict]
 				.-{$pref}{$aliasPart}{$c[0]}{$scaleSymbol}{$scaleName}
@@ -101,48 +101,51 @@ buildRolleiflex()
 				@media (min-width: rUnit($scaleOptions.minWidth))
 					$callbackMixin($scaleName)
 
-	if(rolleiflex.build.container)
-		.{$pref}container
-		.{$pref}container-fluid
-			max-width: 100%
-			margin-right: auto
-			margin-left: auto
-			padding-right: rUnit(rolleiflex.spaces.containerPadding)
-			padding-left: rUnit(rolleiflex.spaces.containerPadding)
-			if(rolleiflex.autoBorderBox)
-				box-sizing: border-box
-
+	// Build process starts here
 	.h-display-flex
 		display: flex
 
-	.{$pref}row
-		@extend .h-display-flex
+	if($buildGrid)
+		if(rolleiflex.build.container)
+			.{$pref}container
+			.{$pref}container-fluid
+				max-width: 100%
+				margin-right: auto
+				margin-left: auto
+				padding-right: rUnit(rolleiflex.spaces.containerPadding)
+				padding-left: rUnit(rolleiflex.spaces.containerPadding)
+				if(rolleiflex.autoBorderBox)
+					box-sizing: border-box
 
-	.{$pref}row
-	.{$pref}col
-		if(rolleiflex.autoBorderBox)
-			box-sizing: border-box
+		.{$pref}row
+			@extend .h-display-flex
 
-	.{$pref}col
-		max-width: 100%
-		flex: 1 1 100%
-		padding-right: $gutter
-		padding-left: $gutter
+		.{$pref}row
+		.{$pref}col
+			if(rolleiflex.autoBorderBox)
+				box-sizing: border-box
 
-	.{$pref}row
-		flex-flow: row wrap
-		margin-right: -($gutter)
-		margin-left: -($gutter)
+		.{$pref}col
+			max-width: 100%
+			flex: 1 1 100%
+			padding-right: $gutter
+			padding-left: $gutter
 
-	// Builds responsive grid
-	rLoopBreakpoints(rBreakpointGrid)
+		.{$pref}row
+			flex-flow: row wrap
+			margin-right: -($gutter)
+			margin-left: -($gutter)
+
+		// Builds responsive grid
+		rLoopBreakpoints(rBreakpointGrid)
+
+		// Generic as f*ck
+		.{$pref}row.-{$pref}fill > .{$pref}col
+		.{$pref}col.-{$pref}fill
+			@extend .h-display-flex
+			> *
+				flex-grow: 1
 
 	// Builds responsive helpers
-	rLoopBreakpoints(rBreakpointHelpers)
-
-	// Generic as f*ck
-	.{$pref}row.-{$pref}fill > .{$pref}col
-	.{$pref}col.-{$pref}fill
-		@extend .h-display-flex
-		> *
-			flex-grow: 1
+	if($buildHelpers)
+		rLoopBreakpoints(rBreakpointHelpers)
