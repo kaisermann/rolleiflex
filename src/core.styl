@@ -9,7 +9,7 @@ $helpersDict = {
 	direction: ((row) (row-reverse) (col column) (col-reverse column-reverse))
 }
 
-buildRolleiflex($buildGrid = true, $buildHelpers = true)
+buildRolleiflex()
 	$scaleSymbol = unquote(rolleiflex.classScaleDivisor)
 	$pref = unquote(rolleiflex.classPrefix)
 	$gutter = rUnit(rolleiflex.spaces.gutter / 2)
@@ -54,11 +54,10 @@ buildRolleiflex($buildGrid = true, $buildHelpers = true)
 	rBreakpointGrid($scaleName)
 		$scaleName = unquote($scaleName)
 
-		if(rolleiflex.build.container)
-			$containerWidth = rolleiflex.breakpoints[$scaleName].container
-			if($containerWidth)
-				.{$pref}container
-					width: rUnit($containerWidth)
+		$containerWidth = rolleiflex.breakpoints[$scaleName].container
+		if($containerWidth)
+			.{$pref}container
+				width: rUnit($containerWidth)
 
 		// For rows
 		.{$pref}row
@@ -105,17 +104,16 @@ buildRolleiflex($buildGrid = true, $buildHelpers = true)
 	.h-display-flex
 		display: flex
 
-	if($buildGrid)
-		if(rolleiflex.build.container)
-			.{$pref}container
-			.{$pref}container-fluid
-				max-width: 100%
-				margin-right: auto
-				margin-left: auto
-				padding-right: rUnit(rolleiflex.spaces.containerPadding)
-				padding-left: rUnit(rolleiflex.spaces.containerPadding)
-				if(rolleiflex.autoBorderBox)
-					box-sizing: border-box
+	if(rolleiflex.build.grid)
+		.{$pref}container
+		.{$pref}container-fluid
+			max-width: 100%
+			margin-right: auto
+			margin-left: auto
+			padding-right: rUnit(rolleiflex.spaces.containerPadding)
+			padding-left: rUnit(rolleiflex.spaces.containerPadding)
+			if(rolleiflex.autoBorderBox)
+				box-sizing: border-box
 
 		.{$pref}row
 			@extend .h-display-flex
@@ -147,5 +145,5 @@ buildRolleiflex($buildGrid = true, $buildHelpers = true)
 				flex-grow: 1
 
 	// Builds responsive helpers
-	if($buildHelpers)
+	if(rolleiflex.build.helpers)
 		rLoopBreakpoints(rBreakpointHelpers)

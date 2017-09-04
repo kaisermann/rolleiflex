@@ -1,6 +1,6 @@
 {
 	"name": "rolleiflex",
-	"version": "5.1.0",
+	"version": "6.0.0",
 	"description": "Just a flexbox grid & helper framework.",
 	"style": "src/wrapper.styl",
 	"repository": {
