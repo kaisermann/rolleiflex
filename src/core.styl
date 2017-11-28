@@ -51,13 +51,15 @@ buildRolleiflex()
 				.h-text-{$alignment}{$scaleSymbol}{$scaleName}
 					text-align: $alignment
 
-	rBreakpointGrid($scaleName)
+	rBreakpointContainer($scaleName)
 		$scaleName = unquote($scaleName)
 
 		$containerWidth = rolleiflex.breakpoints[$scaleName].container
 		if($containerWidth)
 			.{$pref}container
 				width: rUnit($containerWidth)
+
+	rBreakpointGrid($scaleName)
 
 		// For rows
 		.{$pref}row
@@ -104,7 +106,7 @@ buildRolleiflex()
 	.h-display-flex
 		display: flex
 
-	if(rolleiflex.build.grid)
+	if(rolleiflex.build.container)
 		.{$pref}container
 		.{$pref}container-fluid
 			max-width: 100%
@@ -115,6 +117,9 @@ buildRolleiflex()
 			if(rolleiflex.autoBorderBox)
 				box-sizing: border-box
 
+			rLoopBreakpoints(rBreakpointContainer)
+
+	if(rolleiflex.build.grid)
 		.{$pref}row
 			@extend .h-display-flex
 
