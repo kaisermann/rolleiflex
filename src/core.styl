@@ -46,10 +46,9 @@ buildRolleiflex()
 		rBuildHelper('dir-','flex-direction', 'direction')
 
 		// Text alignment helpers
-		if(rolleiflex.build.responsiveText)
-			for $alignment in (left center right justify)
-				.h-text-{$alignment}{$scaleSymbol}{$scaleName}
-					text-align: $alignment
+		for $alignment in (left center right justify)
+			.h-text-{$alignment}{$scaleSymbol}{$scaleName}
+				text-align: $alignment
 
 	rBreakpointContainer($scaleName)
 		$scaleName = unquote($scaleName)
@@ -103,8 +102,9 @@ buildRolleiflex()
 					$callbackMixin($scaleName)
 
 	// Build process starts here
-	.h-display-flex
-		display: flex
+	if(rolleiflex.build.helpers || rolleiflex.build.grid)
+		.h-display-flex
+			display: flex
 
 	if(rolleiflex.build.container)
 		.{$pref}container
