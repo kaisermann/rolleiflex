@@ -1,6 +1,6 @@
 {
   "name": "rolleiflex",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "description": "Just a flexbox grid & helper framework.",
   "style": "src/index.styl",
   "index": "src/index.styl",
@@ -8,7 +8,11 @@
     "type": "git",
     "url": "git+https://github.com/kaisermann/rolleiflex.git"
   },
-  "keywords": ["grid", "css", "flexbox"],
+  "keywords": [
+    "grid",
+    "css",
+    "flexbox"
+  ],
   "author": "Christian Kaisermann",
   "license": "ISC",
   "bugs": {
